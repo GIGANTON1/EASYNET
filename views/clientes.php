@@ -1,6 +1,10 @@
+<?php
+require_once "../conexionDB/conexion.php";
+$resultados = $pdo->query("SELECT * FROM cliente");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -24,7 +28,7 @@
   <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../assets/css/bitacora.css" rel="stylesheet">
+  <link href="../assets/css/cliente.css" rel="stylesheet">
 
 </head>
 
@@ -42,9 +46,9 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
+          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
           <li class="menu-active"><a href="#intro">Mi Bitacora</a></li>
-          <li><a href="../forms/agregar_cliente.html">Clientes</a></li>
+          <li><a href="../bitacora/main_bitacora.html">Clientes</a></li>
           <li><a href="../forms/login.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -55,6 +59,44 @@
   <section id="intro">
 
     <div class="intro-text">
+      <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
+      <h2>CLIENTES EASY NET</h2>
+      <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
+      <!-- TABLA DE CLIENTES -->
+      <div class="d-flex justify-content-center">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Cliente</th>
+            <th scope="col">R.T.N.</th>
+            <th scope="col">Dirección del Cliente</th>
+            <th scope="col">Contacto Principal</th>
+            <th scope="col">Contacto Secundario</th>
+            <th scope="col">Teléfono</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($resultados as $cliente):?>
+              <tr>
+                  <th scope="row"><?php echo $cliente['id_cliente']?></th>
+                  <td><?php echo $cliente['nombre_cliente']?></td>
+                  <td><?php echo $cliente['rtn']?></td>
+                  <td><?php echo $cliente['direccion']?></td>
+                  <td><?php echo $cliente['direccion']?></td>
+                  <td><?php echo $cliente['direccion']?></td>
+                  <td><?php echo $cliente['direccion']?></td>
+              </tr>
+          <?php  endforeach; ?>
+        </tbody>
+      </table>
+</div>
+<div class="botones">
+    <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
+</div>
+      <!-- END TABLA DE CLIENTES -->
+
       <div class="footer">
         <div class="copyright">
           &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
@@ -65,15 +107,6 @@
 
   </section>
   <!-- End Intro Section -->
-<!--  <div class="footer">
-    <div class="col-lg-6 text-lg-left text-center">
-      <div class="copyright">
-        &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
-      </div>
-        Designed by <strong>Easy Net Team</strong>
-      </div>
-    </div>
-  </div>-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

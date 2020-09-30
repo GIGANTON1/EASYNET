@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -24,7 +23,7 @@
   <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../assets/css/bitacora.css" rel="stylesheet">
+  <link href="../assets/css/agregar_clientes.css" rel="stylesheet">
 
 </head>
 
@@ -42,9 +41,9 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
+          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
           <li class="menu-active"><a href="#intro">Mi Bitacora</a></li>
-          <li><a href="../forms/agregar_cliente.html">Clientes</a></li>
+          <li><a href="../bitacora/main_bitacora.html">Clientes</a></li>
           <li><a href="../forms/login.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -55,6 +54,58 @@
   <section id="intro">
 
     <div class="intro-text">
+      <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
+      <h2>NUEVO CLIENTE EASY NET</h2>
+      <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
+
+<!-- formulario agregar clientes -->
+
+
+
+<form class="box" action="" method="post" >
+<!-- primera columna -->
+<div class="row">
+  <div class="col-sm">
+    <div id="dato1" >
+      <label>Empresa</label>
+      <br>
+      <input type="text"  placeholder="Nombre del Cliente">
+      <br>
+      <label>R.T.N</label>
+      <br>
+      <input type="text"  placeholder="RTN del Cliente">
+      <br>
+      <label>Dirección</label>
+      <br>
+      <input type="text"  placeholder="Dirección del Cliente">
+
+    </div>
+  </div>
+<!-- segunda columna -->
+<div class="col-sm">
+    <div id="dato2" >
+      <label>Contacto</label>
+      <br>
+      <input type="text"  placeholder="Contacto de la Empresa">
+      <br>
+      <label># Teléfono</label>
+      <br>
+      <input type="text"  placeholder="Número Telefónico del Cliente">
+      <br>
+      <label>Correo Electrónico</label>
+      <br>
+      <input type="text"  placeholder="Correo Electrónico del Cliente">
+    </div>
+    </div>
+    </div>
+    <div class="botones">
+      <input type="submit" value="Agregar Cliente">
+        <a href="../views/clientes.php">Ver Clientes</a>
+    </div>
+  </form>
+
+  <!-- End formulario agregar clientes -->
+
       <div class="footer">
         <div class="copyright">
           &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
@@ -65,15 +116,6 @@
 
   </section>
   <!-- End Intro Section -->
-<!--  <div class="footer">
-    <div class="col-lg-6 text-lg-left text-center">
-      <div class="copyright">
-        &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
-      </div>
-        Designed by <strong>Easy Net Team</strong>
-      </div>
-    </div>
-  </div>-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

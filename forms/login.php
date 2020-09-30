@@ -25,7 +25,7 @@ if ($iniciado){
         exit;
     }
 }*/
- ?>
+?>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -43,7 +43,7 @@ if ($iniciado){
         <input type="password" name="contraseña" placeholder="Ingrese su contraseña">
         <input type="submit" value="Iniciar Sesión">
     </form>
-    <form class="crear_empresa" action="../main/MainIn.html" method="post">
+    <form class="boton_principal" action="../main/MainIn.html" method="post">
       <input type="submit" name="" value="Pagina Principal">
     </form>
 </body>
