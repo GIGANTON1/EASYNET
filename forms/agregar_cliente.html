@@ -41,9 +41,8 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
-          <li class="menu-active"><a href="#intro">Mi Bitacora</a></li>
-          <li><a href="../bitacora/main_bitacora.html">Clientes</a></li>
+          <li><a href="../main/MainIn.html">Inicio</a></li>
+          <li><a href="#intro">Mi Bitacora</a></li>          
           <li><a href="../forms/login.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -62,22 +61,22 @@
 
 
 
-<form class="box" action="" method="post" >
+<form class="box" action="../forms/agregar_cliente.php" method="post" >
 <!-- primera columna -->
 <div class="row">
   <div class="col-sm">
     <div id="dato1" >
       <label>Empresa</label>
       <br>
-      <input type="text"  placeholder="Nombre del Cliente">
+      <input type="text" name="nombre" placeholder="Nombre del Cliente">
       <br>
       <label>R.T.N</label>
       <br>
-      <input type="text"  placeholder="RTN del Cliente">
+      <input type="text" name="rtn"  placeholder="RTN del Cliente">
       <br>
       <label>Dirección</label>
       <br>
-      <input type="text"  placeholder="Dirección del Cliente">
+      <input type="text" name="direccion"  placeholder="Dirección del Cliente">
 
     </div>
   </div>
@@ -86,20 +85,20 @@
     <div id="dato2" >
       <label>Contacto</label>
       <br>
-      <input type="text"  placeholder="Contacto de la Empresa">
+      <input type="text" name="contacto" placeholder="Contacto de la Empresa">
       <br>
       <label># Teléfono</label>
       <br>
-      <input type="text"  placeholder="Número Telefónico del Cliente">
+      <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente">
       <br>
       <label>Correo Electrónico</label>
       <br>
-      <input type="text"  placeholder="Correo Electrónico del Cliente">
+      <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente">
     </div>
     </div>
     </div>
     <div class="botones">
-      <input type="submit" value="Agregar Cliente">
+      <input type="submit" value="Agregar Cliente" href="clientes.php">
         <a href="../views/clientes.php">Ver Clientes</a>
     </div>
   </form>

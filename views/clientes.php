@@ -46,9 +46,8 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
-          <li class="menu-active"><a href="#intro">Mi Bitacora</a></li>
-          <li><a href="../bitacora/main_bitacora.html">Clientes</a></li>
+          <li><a href="../main/MainIn.html">Inicio</a></li>
+          <li><a href="#intro">Mi Bitacora</a></li>
           <li><a href="../forms/login.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -72,9 +71,8 @@ $resultados = $pdo->query("SELECT * FROM cliente");
             <th scope="col">R.T.N.</th>
             <th scope="col">Dirección del Cliente</th>
             <th scope="col">Contacto Principal</th>
-            <th scope="col">Contacto Secundario</th>
             <th scope="col">Teléfono</th>
-
+            <th scope="col">Correo</th>
           </tr>
         </thead>
         <tbody>
@@ -84,9 +82,9 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                   <td><?php echo $cliente['nombre_cliente']?></td>
                   <td><?php echo $cliente['rtn']?></td>
                   <td><?php echo $cliente['direccion']?></td>
-                  <td><?php echo $cliente['direccion']?></td>
-                  <td><?php echo $cliente['direccion']?></td>
-                  <td><?php echo $cliente['direccion']?></td>
+                  <td><?php echo $cliente['contacto']?></td>
+                  <td><?php echo $cliente['telefono']?></td>
+                  <td><?php echo $cliente['correo']?></td>
               </tr>
           <?php  endforeach; ?>
         </tbody>
@@ -94,6 +92,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 </div>
 <div class="botones">
     <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
+    <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
 </div>
       <!-- END TABLA DE CLIENTES -->
 

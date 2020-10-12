@@ -17,9 +17,9 @@ function Header()
     $this->Cell(40,10,'EASY NET',0,0,'C');
     // Salto de línea
     $this->Ln(20);
-    $this->Cell(65, 10, "Cliente", 1, 0, 'L', 0);
-    $this->Cell(40, 10, "R.T.N.", 1, 0, 'C', 0);
-    $this->Cell(90, 10, utf8_decode("Dirección"), 1, 1, 'C', 0);
+    // $this->Cell(65, 10, "Cliente", 1, 0, 'L', 0);
+    // $this->Cell(40, 10, "R.T.N.", 1, 0, 'C', 0);
+    // $this->Cell(90, 10, utf8_decode("Dirección"), 1, 1, 'C', 0);
 }
 
 // Pie de página
@@ -38,12 +38,15 @@ function Footer()
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial','',10);
+$pdf->SetFont('Arial','',7);
 
 while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
-  $pdf->Cell(65, 10, $row['nombre_cliente'], 1, 0, 'L', 0);
-  $pdf->Cell(40, 10, $row['rtn'], 1, 0, 'C', 0);
-  $pdf->Cell(90, 10, $row['direccion'], 1, 1, 'C', 0);
+  $pdf->Cell(35, 7, $row['nombre_cliente'], 1, 0, 'L', 0);
+  $pdf->Cell(18, 7, $row['rtn'], 1, 0, 'C', 0);
+  $pdf->Cell(55, 7, $row['direccion'], 1, 0, 'C', 0);
+  $pdf->Cell(25, 7, $row['contacto'], 1, 0, 'C', 0);
+  $pdf->Cell(13, 7, $row['telefono'], 1, 0, 'C', 0);
+  $pdf->Cell(45, 7, $row['correo'], 1, 1, 'C', 0);
   // code...
 }
 

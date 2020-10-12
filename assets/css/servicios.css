@@ -2,9 +2,9 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: #fff;
-  color: #666666;
-  font-family: "Open Sans", sans-serif;
+  /* background: #fff; */
+  color: #FFF;
+  font-family: "Open Sans" sans-serif;
   overflow-x: hidden;
 }
 
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo h1 {
   font-size: 36px;
   margin: -4px 0 0 0;
-  padding: 0;
+  padding: ;
   line-height: 1;
   display: inline-block;
   font-family: sans-serif;
@@ -119,143 +119,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
 }
 
-/*--------------------------------------------------------------
-# Intro Section
---------------------------------------------------------------*/
-#intro {
-  width: 100%;
-  height: 100vh;
-  background:  url("../../imgs/fondo.jpg") center top no-repeat;
-  background-size: cover;
-  position: relative;
-}
-#intro img {
-  padding: 0;
-  margin-top: 325px;
-  width: 400px;
-  height: 400px;
-}
-
-
-@media (min-width: 1025px) {
-  #intro {
-    background-attachment: fixed;
-  }
-}
-
-#intro .intro-text {
-  position: absolute;
-  left: 0;
-  top: 60px;
-  right: 0;
-  height: calc(50% - 60px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-}
-
-#intro h2 {
-  margin: 10px 0;
-  padding: 0 15px;
-  font-size: 60px;
-  font-weight: 550;
-  line-height: 56px;
-  color: #1F1F3B;
-}
-
-@media (max-width: 768px) {
-  #intro h2 {
-    font-size: 28px;
-    line-height: 32px;
-  }
-}
-
-#intro p {
-  color: #1F1F3B;
-  margin-bottom: 0px;
-  padding: 0 15px;
-  font-size: 30px;
-}
-
-@media (max-width: 768px) {
-  #intro p {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 20px;
-  }
-}
-
-
-#intro .product-screens {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-  height: 50%;
-}
-
-#intro .product-screens img {
-  box-shadow: 0px -2px 19px 4px rgba(0, 0, 0, 0.29);
-}
-
-#intro .product-screens .product-screen-1 {
-  position: absolute;
-  z-index: 30;
-  left: calc(50% + 54px);
-  bottom: 0;
-  top: 30px;
-}
-
-#intro .product-screens .product-screen-2 {
-  position: absolute;
-  z-index: 20;
-  left: calc(50% - 154px);
-  bottom: 0;
-  top: 90px;
-}
-
-#intro .product-screens .product-screen-3 {
-  position: absolute;
-  z-index: 10;
-  left: calc(50% - 374px);
-  bottom: 0;
-  top: 150px;
-}
-
-@media (max-width: 767px) {
-  #intro .product-screens .product-screen-1 {
-    position: static;
-    padding-top: 30px;
-  }
-  #intro .product-screens .product-screen-2, #intro .product-screens .product-screen-3 {
-    display: none;
-  }
-}
-/*-------BOTONES OPCIONES----------------------*/
-#intro input[type = "submit"]{
-  float: left;
-  border:0;
-  background: none;
-  display: block;
-  margin: 10px auto;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 8px 50px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-  font-size: 25px;
-}
-#intro input[type="submit"]:hover{
-background: #2ecc71;
-}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -297,23 +160,6 @@ background: #2ecc71;
   min-width: 180px;
 }
 
-/* Nav Menu Arrows */
-.sf-arrows .sf-with-ul {
-  padding-right: 30px;
-}
-
-.sf-arrows .sf-with-ul:after {
-  content: "\f107";
-  position: absolute;
-  right: 15px;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-}
-
-.sf-arrows ul .sf-with-ul:after {
-  content: "\f105";
-}
 /* Nav Menu Styling */
 .nav-menu a {
   padding: 0 8px 10px 8px;
@@ -544,7 +390,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #1dc8cd;
   background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Section with background
@@ -553,232 +399,92 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #eff5f5;
 }
 
-/* About Us Section
+/* Product Featuress Section
 --------------------------------*/
-#about {
-  padding: 50px 0;
+#intro {
+  background:  linear-gradient(45deg, rgba(29, 224, 153, 0.8),rgba(29, 200, 205, 0.8)),url("../../imgs/servicio.jpg") center top no-repeat;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  padding: 70px 0 15px 0;
   overflow: hidden;
 }
 
-#about .about-img {
-  height: 520px;
-  overflow: hidden;
+#intro .features-img {
+  text-align: center;
+  padding-top: 20px;
 }
 
-#about .about-img img {
-  margin-left: -15px;
+@media (min-width: 769px) {
+  #intro .features-img {
+    padding-top: 250px;
+    margin-top: -200px;
+  }
+}
+
+#intro .features-img img {
   max-width: 100%;
+  height: 325px;
+  width: 400px;
 }
 
-@media (max-width: 768px) {
-  #about .about-img {
-    height: auto;
-  }
-  #about .about-img img {
-    margin-left: 0;
-    padding-bottom: 30px;
-  }
+#intro .box {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-#about .content .h2 {
-  color: #333;
+#intro .icon {
+  margin-bottom: 5px;
+}
+
+#intro .icon i {
+  color: #666666;
+  font-size: 40px;
+  transition: 0.5s;
+}
+
+#intro .icon i:before {
+  background: #1dc8cd;
+  background: linear-gradient(45deg, #1dc8cd 0%, #55fabe 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#intro .title {
   font-weight: 300;
-  font-size: 24px;
+  margin-bottom: 15px;
+  font-size: 22px;
 }
 
-#about .content h3 {
-  color: #777;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 26px;
-  font-style: italic;
+#intro h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 525;
+  font-size: 35px;
 }
 
-#about .content p {
-  line-height: 26px;
+#intro .title a {
+  color: #111;
+  font-size: 25px;
 }
 
-#about .content p:last-child {
+#intro .description {
+  font-size: 16px;
+  line-height: 20px;
   margin-bottom: 0;
 }
 
-#about .content i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: #1dc8cd;
+#intro .section-description {
+  padding-bottom: 10px;
 }
-
-#about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-#about .content ul li {
-  padding-bottom: 30px;
-}
-
-/* Contact Section
---------------------------------*/
-#contact {
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  padding: 60px 0;
-  overflow: hidden;
-}
-
-#contact .contact-about h3 {
-  font-size: 36px;
-  margin: 0 0 10px 0;
-  padding: 0;
-  line-height: 1;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #1dc8cd;
-}
-
-#contact .contact-about p {
-  font-size: 14px;
-  line-height: 24px;
-  font-family: "Montserrat", sans-serif;
-  color: #888;
-}
-
-#contact .social-links {
-  padding-bottom: 20px;
-}
-
-#contact .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #fff;
-  color: #1dc8cd;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  border: 1px solid #1dc8cd;
-}
-
-#contact .social-links a:hover {
-  background: #1dc8cd;
-  color: #fff;
-}
-
-#contact .info {
-  color: #333333;
-}
-
-#contact .info i {
-  font-size: 32px;
-  color: #1dc8cd;
-  float: left;
-  line-height: 1;
-}
-
-#contact .info p {
-  padding: 0 0 10px 42px;
-  line-height: 28px;
-  font-size: 14px;
-}
-
-#contact .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-#contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-#contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-#contact .php-email-form input, #contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-#contact .php-email-form input:focus, #contact .php-email-form textarea::focus {
-  background-color: #1dc8cd;
-}
-
-#contact .php-email-form button[type="submit"] {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
-  border: 0;
-  border-radius: 20px;
-  padding: 8px 30px;
-  color: #fff;
-}
-
-#contact .php-email-form button[type="submit"]:hover {
-  cursor: pointer;
-}
-
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
   background: #fff;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  padding: 30px 0;
+  padding: 18px 0;
   color: #333;
   font-size: 14px;
 }

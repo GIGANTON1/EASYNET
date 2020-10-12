@@ -2,8 +2,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: #fff;
-  color: #666666;
+  /* background: #fff; */
+  color: #FFF;
   font-family: "Open Sans" sans-serif;
   overflow-x: hidden;
 }
@@ -120,78 +120,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-# Intro Section
---------------------------------------------------------------*/
-#intro {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(45deg, rgba(29, 224, 153, 0.8),rgba(29, 200, 205, 0.8)), url("../../imgs/fondo.jpg") center top no-repeat;
-  background-size: cover;
-  position: relative;
-}
-/* #intro img {
-  padding: 0;
-  margin-top: 325px;
-  width: 400px;
-  height: 400px;
-} */
-
-
-@media (min-width: 1025px) {
-  #intro {
-    background-attachment: fixed;
-  }
-}
-
-#intro .intro-text {
-  position: absolute;
-  left: 0;
-  top: 200px;
-  right: 0;
-  height: calc(50% - 60px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-}
-
-#intro h2 {
-  margin: 10px 0;
-  padding: 0 15px;
-  font-size: 45px;
-  font-weight: 525;
-  line-height: 56px;
-  color: #FFF;
-}
-@media (max-width: 768px) {
-  #intro h2 {
-    font-size: 28px;
-    line-height: 25px;
-  }
-}
-
-/*-------BOTONES OPCIONES----------------------*/
-#intro a{
-  float: left;
-  border:0;
-  background: none;
-  display: block;
-  margin: 25px;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 4px 30px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-  font-size: 20px;
-}
-#intro a:hover{
-background: #2ecc71;
-}
-/*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Nav Menu Essentials */
@@ -268,7 +196,6 @@ background: #2ecc71;
 }
 
 
-
 /* Nav Meu Container */
 #nav-menu-container {
   float: right;
@@ -282,7 +209,7 @@ background: #2ecc71;
   }
 }
 
-/* Nav Menu Styling */
+/* Nav Meu Styling */
 .nav-menu a {
   padding: 0 8px 10px 8px;
   text-decoration: none;
@@ -443,19 +370,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Sections Header
 --------------------------------*/
 .section-header .section-title {
-  font-size: 32px;
-  color: #111;
+  font-size: 35px;
+  color: #fff;
   text-align: center;
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .section-header .section-description {
   text-align: center;
   padding-bottom: 40px;
-  color: #777;
+  color: #fff;
   font-style: italic;
 }
-
 .section-header .section-divider {
   display: block;
   width: 60px;
@@ -463,73 +389,170 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #1dc8cd;
   background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Section with background
 --------------------------------*/
+.section-bg {
+  background: #eff5f5;
+}
 
+/* Product Featuress Section
+--------------------------------*/
+#intro {
+  background:  linear-gradient(45deg, rgba(29, 224, 153, 0.8),rgba(29, 200, 205, 0.8)),url("../../imgs/servicio.jpg") center top no-repeat;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  padding: 70px 0 20px 0;
+  overflow: hidden;
+}
 
+#intro .features-img {
+  text-align: center;
+  padding-top: 20px;
+}
+
+@media (min-width: 769px) {
+  #intro .features-img {
+    padding-top: 250px;
+    margin-top: -200px;
+  }
+}
+
+#intro .features-img img {
+  max-width: 100%;
+  height: 325px;
+  width: 400px;
+}
+
+#intro .box {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#intro .icon {
+  margin-bottom: 5px;
+}
+
+#intro .icon i {
+  color: #666666;
+  font-size: 40px;
+  transition: 0.5s;
+}
+
+#intro .icon i:before {
+  background: #1dc8cd;
+  background: linear-gradient(45deg, #1dc8cd 0%, #55fabe 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#intro .title {
+  font-weight: 300;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+#intro h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 525;
+  font-size: 35px;
+}
+
+#intro .title a {
+  color: #111;
+  font-size: 25px;
+}
+
+#intro .description {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+#intro .section-description {
+  padding-bottom: 10px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#intro .intro-text .footer {
-  color: #fff;
-  font-size: 15px;
+#footer {
+  background: #fff;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  padding: 18px 0;
+  color: #333;
+  font-size: 14px;
 }
 
-/* Formulario Agregar CLIENTE */
-.box{
-  color: white;
-  font-weight: bold;
-}
-.box label{
-  font-size: 20px
-}
-.box #dato1 input[type="text"]:placeholder{
-  color: white;
-  font-weight: bold;
-}
-.box #dato1 input[type = "text"],.box input[type = "email"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 5px auto;
-  text-align: center;
-  border: 2px solid #3498db;
-  padding: 14px 10px;
-  width: 320px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  font-size: 15px;
-}
-.box #dato1 input[type = "text"]:focus,.box input[type = "email"]:focus{
-  border-color: #2ecc71;
+#footer .credits {
+  font-size: 13px;
+  color: #888;
 }
 
-/* .box input[type = "submit"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 50px;
+#footer .footer-links a {
+  color: #666;
+  padding-left: 15px;
+}
+
+#footer .footer-links a:first-child {
+  padding-left: 0;
+}
+
+#footer .footer-links a:hover {
+  color: #1dc8cd;
+}
+
+/* Our Team Section
+--------------------------------*/
+#intro {
+  padding: 50px 0 0 0;
+  overflow: hidden;
+}
+
+#intro .member {
   text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 14px 40px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#intro .member .pic {
+  margin-bottom: 15px;
+  overflow: hidden;
+  height: 260px;
+}
+
+#intro .member .pic img {
+  max-width: 100%;
+}
+
+#intro .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
   font-size: 20px;
 }
-.box input[type = "submit"]:hover{
-  background: #2ecc71;
-} */
-.box #dato1{
-  /* float: left; */
-  margin: 0;
+
+#intro .member span {
+  font-style: italic;
+  display: block;
+  font-size: 15px;
 }
 
-/* End Formulario Cliente */
+#intro .member .social {
+  margin-top: 15px;
+}
+
+#intro .member .social a {
+  color: #fff;
+}
+
+#intro .member .social a:hover {
+  color: gray;
+}
+
+#intro .member .social i {
+  font-size: 18px;
+  margin:0;
+}
