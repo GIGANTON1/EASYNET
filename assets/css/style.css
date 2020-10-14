@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   color: #fff;
   padding: 2px 20px 8px 20px;
   font-size: 16px;
@@ -106,14 +106,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
     margin-top: 0;
   }
-  #header #logo img {
-    height: 0px;
-
-  }
 }
 
 #header.header-fixed {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(100deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -125,14 +121,14 @@ h1, h2, h3, h4, h5, h6 {
 #intro {
   width: 100%;
   height: 100vh;
-  background:  url("../../imgs/fondo.jpg") center top no-repeat;
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8)), url("../../imgs/fondo_moodle.jpg") center top no-repeat;
   background-size: cover;
   position: relative;
 }
 #intro img {
   padding: 0;
   margin-top: 325px;
-  width: 400px;
+  width: 900px;
   height: 400px;
 }
 
@@ -162,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 60px;
   font-weight: 550;
   line-height: 56px;
-  color: #1F1F3B;
+  color: #FFF;
 }
 
 @media (max-width: 768px) {
@@ -173,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #intro p {
-  color: #1F1F3B;
+  color: #fff;
   margin-bottom: 0px;
   padding: 0 15px;
   font-size: 30px;
@@ -199,33 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 50%;
 }
 
-#intro .product-screens img {
-  box-shadow: 0px -2px 19px 4px rgba(0, 0, 0, 0.29);
-}
 
-#intro .product-screens .product-screen-1 {
-  position: absolute;
-  z-index: 30;
-  left: calc(50% + 54px);
-  bottom: 0;
-  top: 30px;
-}
-
-#intro .product-screens .product-screen-2 {
-  position: absolute;
-  z-index: 20;
-  left: calc(50% - 154px);
-  bottom: 0;
-  top: 90px;
-}
-
-#intro .product-screens .product-screen-3 {
-  position: absolute;
-  z-index: 10;
-  left: calc(50% - 374px);
-  bottom: 0;
-  top: 150px;
-}
 
 @media (max-width: 767px) {
   #intro .product-screens .product-screen-1 {
@@ -239,22 +209,21 @@ h1, h2, h3, h4, h5, h6 {
 /*-------BOTONES OPCIONES----------------------*/
 #intro input[type = "submit"]{
   float: left;
-  border:0;
   background: none;
   display: block;
   margin: 10px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px solid limegreen;
   padding: 8px 50px;
   outline: none;
-  color: white;
+  color: #fff;
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;
   font-size: 25px;
 }
 #intro input[type="submit"]:hover{
-background: #2ecc71;
+background: #0D47A1;
 }
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -631,10 +600,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 0;
   line-height: 1;
   font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #1dc8cd;
+  color: rgb(45, 115, 253);
 }
 
 #contact .contact-about p {
@@ -652,7 +621,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 18px;
   display: inline-block;
   background: #fff;
-  color: #1dc8cd;
+  color: rgb(45, 170, 253);
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -661,11 +630,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 36px;
   height: 36px;
   transition: 0.3s;
-  border: 1px solid #1dc8cd;
+  border: 1px solid rgb(45, 170, 253);
 }
 
 #contact .social-links a:hover {
-  background: #1dc8cd;
+  background: rgb(45, 170, 253);
   color: #fff;
 }
 
@@ -675,7 +644,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .info i {
   font-size: 32px;
-  color: #1dc8cd;
+  color: rgb(37, 135, 255);
   float: left;
   line-height: 1;
 }
@@ -688,7 +657,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .php-email-form .validate {
   display: none;
-  color: red;
+  color: orangered;
   margin: 0 0 15px 0;
   font-weight: 400;
   font-size: 13px;
@@ -738,12 +707,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
 }
 
-#contact .php-email-form input:focus, #contact .php-email-form textarea::focus {
-  background-color: #1dc8cd;
+#contact .php-email-form input:focus, #contact .php-email-form textarea:focus {
+  background-color: #fff;
 }
 
 #contact .php-email-form button[type="submit"] {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(100deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   border: 0;
   border-radius: 20px;
   padding: 8px 30px;

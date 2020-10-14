@@ -47,7 +47,12 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="../main/MainIn.html">Inicio</a></li>
-          <li><a href="#intro">Mi Bitacora</a></li>
+            <li class="menu-has-children"><a href="">Bitacora</a>
+                <ul>
+                    <li><a href="#">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                </ul>
+            </li>
           <li><a href="../forms/login.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -86,7 +91,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                   <td><?php echo $cliente['telefono']?></td>
                   <td><?php echo $cliente['correo']?></td>
               </tr>
-          <?php  endforeach; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
 </div>

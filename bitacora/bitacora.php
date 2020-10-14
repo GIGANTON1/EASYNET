@@ -1,6 +1,7 @@
 <?php
 require_once "../conexionDB/conexion.php";
 $clientes = $pdo->query("SELECT * FROM cliente");
+$soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +10,9 @@ $clientes = $pdo->query("SELECT * FROM cliente");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Easy Net - Distribuidor VIP</title>
+  <title>EasyNet - Distribuidor VIP</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
-
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -42,12 +42,12 @@ $clientes = $pdo->query("SELECT * FROM cliente");
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a>
-        <h1><a href="#intro" class="scrollto">Easy Net</a></h1>
+        <h1><a href="#intro" class="scrollto">EasyNet</a></h1>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
+          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
           <li><a href="#">Mi Bitacora</a></li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
@@ -64,14 +64,14 @@ $clientes = $pdo->query("SELECT * FROM cliente");
   <!-- ======= Intro Section ======= -->
   <section id="intro">
       <div class="intro-text">
-        <h2>NUEVA BITACORA EASY NET</h2>
+        <h2>NUEVA BITACORA EASYNET</h2>
 
 
          <div class="footer">
                     <div class="copyright">
-                      &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
+                      &copy; Copyright <strong>EasyNet</strong>. All Rights Reserved 2020
                     </div>
-                      Designed by <strong>Easy Net Team</strong>
+                      Designed by <strong>EasyNet Team</strong>
         </div>
       </div>
       <div class="intro-text">
@@ -113,18 +113,16 @@ $clientes = $pdo->query("SELECT * FROM cliente");
     </div>
     <div class="col-md-6 mb-3">
        <label for="example-date-input" class="col-6 col-form-label">Fecha de Soporte</label>
-        <div class="col-6">
-          <input class="form-control" type="fecha" placeholder="2020-10-10" id="example-date-input">
-        </div>
+
     </div>
     <div class="col-md-3 mb-3">
-
-    <label for="validationCustom04">Soporte</label>
-          <select class="custom-select" id="validationCustom04" required>
-            <option selected disabled value="">Tipo de Soporte</option>
-            <option>Presencial</option>
-            <option>Remoto</option>
-          </select>
+        <label>Soporte</label>
+        <!--<input type="text" class="form-control" id="cliente_soporte" value="Cliente Atendido" required>-->
+        <select class="custom-select" placeholder="Tipo de Soporte" id="validationCustom04" required>
+            <?php foreach ($soportes as $soporte):?>
+                <option><?php echo $soporte['soporte']?></option>
+            <?php  endforeach; ?>
+        </select>
     </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
@@ -147,6 +145,7 @@ $clientes = $pdo->query("SELECT * FROM cliente");
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+
 
 </body>
 

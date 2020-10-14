@@ -4,7 +4,7 @@
 body {
   /* background: #fff; */
   color: #FFF;
-  font-family: "Open Sans" sans-serif;
+  font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
 }
 
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   color: #fff;
   padding: 2px 20px 8px 20px;
   font-size: 16px;
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   /* color: black */
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
 }
 #header .container{
   padding: 0;
@@ -82,7 +82,6 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo h1 {
   font-size: 36px;
   margin: -4px 0 0 0;
-  padding: ;
   line-height: 1;
   display: inline-block;
   font-family: sans-serif;
@@ -114,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-fixed {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -372,7 +371,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 .section-header .section-title {
   font-size: 35px;
-  color: black;
+  color: dimgray;
   text-align: center;
   font-weight: 800;
 }
@@ -380,17 +379,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 .section-header .section-description {
   text-align: center;
   padding-bottom: 5px;
-  color: black;
+  color: gray;
   font-style: italic;
 }
 .section-header .section-divider {
   display: block;
   width: 60px;
   height: 3px;
-  background: #1dc8cd;
-  background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
+  background: rgba(29, 200, 205, 0.8);
   margin: 0 auto;
-  margin-bottom: 0;
+
 }
 
 /* Section with background
@@ -422,7 +420,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #pricing h4 {
   font-size: 46px;
-  color: #1dc8cd;
+  color: rgba(45, 115, 253, 100);
   font-weight: 300;
 }
 
@@ -449,13 +447,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #pricing ul i {
-  color: #1dc8cd;
+  color: #1f29f1;
   font-size: 18px;
   padding-right: 4px;
 }
 
 #pricing .get-started-btn {
-  background: #515e61;
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   display: inline-block;
   padding: 6px 30px;
   border-radius: 20px;
@@ -471,7 +469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #pricing .featured .get-started-btn {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
 }
 
 /*--------------------------------------------------------------
