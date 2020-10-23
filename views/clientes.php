@@ -68,7 +68,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
       <div class="d-flex justify-content-center">
-      <table class="table table-hover">
+      <table class="table table-hover" style="color:#fff">
         <thead>
           <tr>
             <th scope="col">#</th>

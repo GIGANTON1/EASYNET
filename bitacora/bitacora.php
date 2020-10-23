@@ -1,7 +1,30 @@
 <?php
 require_once "../conexionDB/conexion.php";
+
 $clientes = $pdo->query("SELECT * FROM cliente");
 $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
+if (!empty($_POST)) {
+    $nombre = $_POST['nombre_cliente'];
+    $contacto = $_POST['contacto_soporte'];
+    $motivo = $_POST['motivo'];
+    $solucion = $_POST['solucion'];
+    $soport = $_POST['soporte'];
+
+    if (empty($nombre) ||empty($contacto) || empty($motivo) || empty($solucion) || empty($soport)) {
+        $mensajes[] = "Todos los campos son obligatorios";
+    }
+    $ingreso = 0;
+    if (empty($mensajes)) {
+        $ingreso = ("INSERT INTO bitacora"
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, soporte)"
+            . " VALUES ('$nombre','$contacto', '$motivo', '$solucion', '$soport')");
+    }
+    if ($ingreso >= 1) {
+        $mensajes[] = "";
+    } else {
+        $mensajes[] = "Hubo un error al agregar la nueva bitacora.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +38,7 @@ $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="../../assets/img/favicon.png" rel="icon">
   <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -76,11 +99,18 @@ $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
       </div>
       <div class="intro-text">
 <!----Form Bitacora---->
-
-<div class="form">
-<form class="needs-validation" novalidate>
+<div class="form" >
+<form action="" method="post">
   <div class="form-row">
     <div class="col-md-6 mb-3">
+        <?php
+        if (!empty($mensajes)):
+            echo '<ul>';
+            foreach ($mensajes as $mensaje){
+                echo "<li>{$mensaje}</li>";
+            }
+            echo '</ul>';
+        endif; ?>
       <label>Cliente atendido</label>
       <!--<input type="text" class="form-control" id="cliente_soporte" value="Cliente Atendido" required>-->
         <select class="custom-select" placeholder="Cliente Atendido" id="validationCustom04" required>
@@ -94,7 +124,7 @@ $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
     </div>
     <div class="col-md-6 mb-3">
       <label>Contacto para el Soporte</label>
-      <input type="text" class="form-control" id="contacto_soporte" placeholder="Contacto del Soporte" required>
+        <input type="text" class="form-control" id="contacto_soporte" placeholder="Contacto del Soporte" required/>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -118,14 +148,14 @@ $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
     <div class="col-md-3 mb-3">
         <label>Soporte</label>
         <!--<input type="text" class="form-control" id="cliente_soporte" value="Cliente Atendido" required>-->
-        <select class="custom-select" placeholder="Tipo de Soporte" id="validationCustom04" required>
+        <select class="custom-select" placeholder="Tipo de Soporte" id="validationCustom05" required>
             <?php foreach ($soportes as $soporte):?>
                 <option><?php echo $soporte['soporte']?></option>
             <?php  endforeach; ?>
         </select>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <button class="btn btn-primary" type="submit">Ingresar Bitacora</button>
 </form>
 </div>
 <!----End Form Bitacora---->

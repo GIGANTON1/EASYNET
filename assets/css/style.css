@@ -223,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 25px;
 }
 #intro input[type="submit"]:hover{
-background: #0D47A1;
+background: #2ecc71;
 }
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -352,7 +352,7 @@ background: #0D47A1;
   margin: 4px 0 0 0;
   padding: 10px;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  background: red;
+  background: #fff;
 }
 
 .nav-menu ul li {
@@ -511,7 +511,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 60px;
   height: 3px;
   background: #1dc8cd;
-  background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   margin: 0 auto;
   margin-bottom: 20px;
 }
