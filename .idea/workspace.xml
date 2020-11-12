@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/agregar_clientes.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/agregar_clientes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bitacora.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bitacora_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora_form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/cliente.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/cliente.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/sendEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/sendEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/MainIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/servicios.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/servicios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/software.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/software.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/soporte.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/soporte.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +73,7 @@
       <workItem from="1602692365814" duration="11194000" />
       <workItem from="1603396954780" duration="10255000" />
       <workItem from="1603489078275" duration="4163000" />
+      <workItem from="1605155633953" duration="4290000" />
     </task>
     <servers />
   </component>
@@ -113,5 +110,9 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="82" height="523" key="SqlResolveConfigurable/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603400761934" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605155971242">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605155971242" />
   </component>
 </project>

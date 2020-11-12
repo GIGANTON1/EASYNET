@@ -36,6 +36,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
   <!-- ======= Header ======= -->
   <header id="header">
+
     <div class="container">
 
       <div id="logo" class="pull-left">
@@ -68,7 +69,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
       <div class="d-flex justify-content-center">
-      <table class="table table-hover" style="color:#fff">
+      <table class="table" style="color:#fff">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -95,18 +96,21 @@ $resultados = $pdo->query("SELECT * FROM cliente");
         </tbody>
       </table>
 </div>
+
 <div class="botones">
     <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
     <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
 </div>
+
       <!-- END TABLA DE CLIENTES -->
 
       <div class="footer">
         <div class="copyright">
-          &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
+            &copy; Copyright <strong>EasyNet</strong>. Todos Derechos Reservados 2020
         </div>
-          Designed by <strong>Easy Net Team</strong>
-        </div>
+          <div class="credits">
+              Somos <strong>Equipo EasyNet</strong>
+          </div>
       </div>
 
   </section>

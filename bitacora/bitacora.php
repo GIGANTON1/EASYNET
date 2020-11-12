@@ -88,13 +88,11 @@ if (!empty($_POST)) {
   <section id="intro">
       <div class="intro-text">
         <h2>NUEVA BITACORA EASYNET</h2>
-
-
          <div class="footer">
                     <div class="copyright">
-                      &copy; Copyright <strong>EasyNet</strong>. All Rights Reserved 2020
+                      &copy; Copyright <strong>EasyNet</strong>. Todos los derechos Reservados 2020
                     </div>
-                      Designed by <strong>EasyNet Team</strong>
+                      Somos <strong>Equipo EasyNet</strong>
         </div>
       </div>
       <div class="intro-text">
