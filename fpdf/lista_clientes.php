@@ -7,19 +7,17 @@ class PDF extends FPDF
 // Cabecera de página
 function Header()
 {
-    // Logo
+    /* Logo*/
     $this->Image('../imgs/logo_easynet.png',10,8,22);
-    // Arial bold 15
+    /* Arial bold 15 */
     $this->SetFont('Arial','B',18);
-    // Movernos a la derecha
+    /*Movernos a la derecha*/
     $this->Cell(80);
-    // Título
+    /* titulo del pdf*/
     $this->Cell(40,10,'EASY NET',0,0,'C');
-    // Salto de línea
+
     $this->Ln(20);
-    // $this->Cell(65, 10, "Cliente", 1, 0, 'L', 0);
-    // $this->Cell(40, 10, "R.T.N.", 1, 0, 'C', 0);
-    // $this->Cell(90, 10, utf8_decode("Dirección"), 1, 1, 'C', 0);
+
 }
 
 // Pie de página
@@ -39,7 +37,7 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',7);
-
+/*TABLA DE CLIENTES*/
 while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
   $pdf->Cell(35, 7, $row['nombre_cliente'], 1, 0, 'L', 0);
   $pdf->Cell(18, 7, $row['rtn'], 1, 0, 'C', 0);
@@ -47,7 +45,6 @@ while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
   $pdf->Cell(25, 7, $row['contacto'], 1, 0, 'C', 0);
   $pdf->Cell(13, 7, $row['telefono'], 1, 0, 'C', 0);
   $pdf->Cell(45, 7, $row['correo'], 1, 1, 'C', 0);
-  // code...
 }
 
 

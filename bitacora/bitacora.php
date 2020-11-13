@@ -33,7 +33,7 @@ if (!empty($_POST)) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EasyNet - Distribuidor VIP</title>
+  <title>EasyNet - Creación Bitácora</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -78,7 +78,7 @@ if (!empty($_POST)) {
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
                       </ul>
           </li>
-          <li><a href="../forms/login.php">Cerrar Sesión</a></li>
+          <li><a href="../main/main.html">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

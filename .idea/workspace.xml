@@ -5,12 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fpdf/lista_clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/fpdf/lista_clientes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/MainIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/servicios.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/servicios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/software.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/software.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/soporte.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/soporte.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +72,7 @@
       <workItem from="1603396954780" duration="10255000" />
       <workItem from="1603489078275" duration="4163000" />
       <workItem from="1605155633953" duration="4290000" />
+      <workItem from="1605226645288" duration="2957000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Easy Net - Distribuidor VIP</title>
+      <title>Easy Net - Clientes</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -54,7 +54,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                 </ul>
             </li>
-          <li><a href="../forms/login.php">Cerrar Sesión</a></li>
+          <li><a href="../main/main.html">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
