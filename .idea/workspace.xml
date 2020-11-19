@@ -5,10 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fpdf/lista_clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/fpdf/lista_clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/MainIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/MainIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/servicios.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/servicios.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,7 @@
       <workItem from="1603489078275" duration="4163000" />
       <workItem from="1605155633953" duration="4290000" />
       <workItem from="1605226645288" duration="2957000" />
+      <workItem from="1605800329377" duration="6000000" />
     </task>
     <servers />
   </component>
@@ -88,18 +90,18 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="117" y="259" width="1121" height="275" key="#SQL_Resolution_Scopes/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603400762018" />
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603490060780">
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605804030036">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603490060780" />
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605804030036" />
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602428001508">
       <screen x="0" y="27" width="1360" height="741" />
     </state>
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1360.741/0.27.1360.741@0.27.1360.741" timestamp="1602428001508" />
-    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog" timestamp="1603398048401">
+    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog" timestamp="1605817944991">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603398048401" />
+    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605817944991" />
     <state x="185" y="32" key="SettingsEditor" timestamp="1602692867912">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -109,9 +111,9 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="82" height="523" key="SqlResolveConfigurable/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603400761934" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605155971242">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605818060842">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605155971242" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605818060842" />
   </component>
 </project>

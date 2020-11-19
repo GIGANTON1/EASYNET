@@ -1,3 +1,6 @@
+<?php
+require_once "../conexionDB/logedin.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +54,7 @@
                             <li><a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a></li>
                           </ul>
                     </li>
-          <li><a href="../main/main.html">Cerrar Sesión</a></li>
+          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

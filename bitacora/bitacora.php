@@ -70,7 +70,7 @@ if (!empty($_POST)) {
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="../main/MainIn.html">Inicio</a></li>
+          <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
           <li><a href="#">Mi Bitacora</a></li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
@@ -78,7 +78,7 @@ if (!empty($_POST)) {
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
                       </ul>
           </li>
-          <li><a href="../main/main.html">Cerrar Sesión</a></li>
+          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

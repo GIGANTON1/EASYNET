@@ -9,7 +9,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-      <title>Easy Net - Clientes</title>
+      <title>EasyNet - Clientes</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -42,19 +42,19 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a>
-        <h1><a href="#intro" class="scrollto">Easy Net</a></h1>
+        <h1><a href="#intro" class="scrollto">EasyNet</a></h1>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="../main/MainIn.html">Inicio</a></li>
+          <li><a href="../main/MainIn.php">Inicio</a></li>
             <li class="menu-has-children"><a href="">Bitacora</a>
                 <ul>
                     <li><a href="#">Mi Bitacora</a></li>
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                 </ul>
             </li>
-          <li><a href="../main/main.html">Cerrar Sesión</a></li>
+          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -65,7 +65,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
     <div class="intro-text">
       <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
-      <h2>CLIENTES EASY NET</h2>
+      <h2>CLIENTES EASYNET</h2>
       <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
       <div class="d-flex justify-content-center">
