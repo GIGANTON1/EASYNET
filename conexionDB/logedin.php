@@ -7,4 +7,3 @@ if (!$iniciado) {
     header("Location: ../forms/login.html");
     exit();
 }
-?>

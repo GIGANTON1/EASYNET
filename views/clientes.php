@@ -68,29 +68,23 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <h2>CLIENTES EASYNET</h2>
       <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
-      <div class="d-flex justify-content-center">
-      <table class="table" style="color:#fff">
+      <div class="table-responsive-l">
+      <table class="table table-hover" style="color:#fff">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre Cliente</th>
-            <th scope="col">R.T.N.</th>
-            <th scope="col">Dirección del Cliente</th>
-            <th scope="col">Contacto Principal</th>
+              <th scope="col">R.T.N.</th>
+              <th scope="col">Nombre Cliente</th>
             <th scope="col">Teléfono</th>
-            <th scope="col">Correo</th>
+            <th scope="col">Acción</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($resultados as $cliente):?>
               <tr>
-                  <th scope="row"><?php echo $cliente['id_cliente']?></th>
+                  <th scope="row"><?php echo $cliente['rtn']?></th>
                   <td><?php echo $cliente['nombre_cliente']?></td>
-                  <td><?php echo $cliente['rtn']?></td>
-                  <td><?php echo $cliente['direccion']?></td>
-                  <td><?php echo $cliente['contacto']?></td>
                   <td><?php echo $cliente['telefono']?></td>
-                  <td><?php echo $cliente['correo']?></td>
+                  <td><submitt onclick="windowOpen()" class="icon"><i class="ion-ios-gear-outline"></i></submitt></td>
               </tr>
           <?php endforeach; ?>
         </tbody>
@@ -130,7 +124,15 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script>
+      var Window;
+      function windowOpen() {
+          Window = window.open(
+              "../forms/login.html",
+              "_blank", "width=400, height=450");
+      }
 
+  </script>
 </body>
 
 </html>
