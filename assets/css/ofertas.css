@@ -397,79 +397,77 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #eff5f5;
 }
 
-/* Pricing Section
+/* Product Advanced Featuress Section
 --------------------------------*/
-#pricing {
-  padding: 95px 0 40px 0;
+#advanced-features {
   overflow: hidden;
 }
 
-#pricing .box {
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
-  background: #fff;
-  text-align: center;
+#advanced-features .features-row {
+  padding: 150px 0 25px 0;
 }
 
-#pricing h3 {
-  font-weight: 800;
-  margin-bottom: 15px;
-  font-size: 35px;
+#advanced-features h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
 }
 
-#pricing h4 {
-  font-size: 46px;
-  color: rgba(45, 115, 253, 100);
-  font-weight: 300;
-}
-
-#pricing h4 sup {
-  font-size: 20px;
-  top: -20px;
-}
-
-#pricing h4 span {
-  color: #bababa;
-  font-size: 20px;
-}
-
-#pricing ul {
-  padding: 0;
-  list-style: none;
-  color: #999;
-  text-align: left;
-  line-height: 20px;
-}
-
-#pricing ul li {
-  padding-bottom: 12px;
-}
-
-#pricing ul i {
-  color: #1f29f1;
-  font-size: 18px;
-  padding-right: 4px;
-}
-
-#pricing .get-started-btn {
-  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
-  display: inline-block;
-  padding: 6px 30px;
-  border-radius: 20px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
+#advanced-features h3 {
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 400;
-  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  color: #999;
 }
 
-#pricing .featured {
-  border: 2px solid #1dc8cd;
+#advanced-features p {
+  line-height: 24px;
+  color: #777;
+  margin-bottom: 30px;
 }
 
-#pricing .featured .get-started-btn {
-  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
+#advanced-features i {
+  color: #666666;
+  font-size: 64px;
+  transition: 0.5s;
+  float: left;
+  padding: 0 15px 0px 0;
+  line-height: 1;
+}
+
+#advanced-features i:before {
+  background: #1dc8cd;
+  background: linear-gradient(45deg, #1dc8cd 0%, #55fabe 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#advanced-features .advanced-feature-img-right {
+  max-width: 100%;
+  float: right;
+  padding: 0 0 30px 30px;
+}
+
+#advanced-features .advanced-feature-img-left {
+  max-width: 100%;
+  float: left;
+  padding: 0 30px 30px 0;
+}
+
+@media (max-width: 768px) {
+  #advanced-features .advanced-feature-img-right, #advanced-features .advanced-feature-img-left {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  #advanced-features .advanced-feature-img-right, #advanced-features .advanced-feature-img-left {
+    max-width: 100%;
+    float: none;
+    padding: 0 0 30px 0;
+  }
 }
 
 /*--------------------------------------------------------------
