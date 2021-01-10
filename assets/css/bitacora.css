@@ -155,6 +155,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   flex-direction: column;
 }
+#intro .intro-text{
+  height: 900px;
+}
 
 /*-------BOTONES OPCIONES----------------------*/
 #intro input[type = "submit"]{

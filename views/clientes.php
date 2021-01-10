@@ -22,8 +22,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="../imgs/logo_easynet.ico" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
