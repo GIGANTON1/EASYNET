@@ -4,7 +4,7 @@ require_once "../conexionDB/conexion.php";
 $clientes = $pdo->query("SELECT * FROM cliente");
 $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
 if (!empty($_POST)) {
-    $nombre = $_POST['nombre_cliente'];
+    $cliente = $_POST['nombre_cliente'];
     $contacto = $_POST['contacto_soporte'];
     $motivo = $_POST['motivo'];
     $solucion = $_POST['solucion'];
@@ -100,60 +100,44 @@ if (!empty($_POST)) {
 <div class="form" >
 <form action="" method="post">
   <div class="form-row">
-    <div class="col-md-6 mb-3">
-        <?php
-        if (!empty($mensajes)):
-            echo '<ul>';
-            foreach ($mensajes as $mensaje){
-                echo "<li>{$mensaje}</li>";
-            }
-            echo '</ul>';
-        endif; ?>
-      <label>Cliente atendido</label>
-      <!--<input type="text" class="form-control" id="cliente_soporte" value="Cliente Atendido" required>-->
-        <select class="custom-select" placeholder="Cliente Atendido" id="validationCustom04" required>
-            <?php foreach ($clientes as $cliente):?>
-                <option><?php echo $cliente['nombre_cliente']?></option>
-            <?php  endforeach; ?>
-        </select>
+      <div class="col-sm">
+          <div id="dato1" >
+              <label>Cliente Atendido</label>
+              <select class="cliente" placeholder="Cliente Atendido" >
+                  <?php foreach ($clientes as $cliente):?>
+                      <option><?php echo $cliente['nombre_cliente']?></option>
+                  <?php  endforeach; ?>
+              </select>
+              <!--<input type="text" name="nombre" placeholder="Nombre del Cliente">--->
+              <br>
+              <label>Problema/Motivo de Soporte</label>
+              <br>
+              <input type="text" name="motivo"  placeholder="Problema/Motivo de la llamada">
+              <br>
+              <label>Fecha del Soporte</label>
+              <br>
+              <input type="date" name="fecha"  placeholder="Hora/Fecha del Soporte">
+              <br>
 
-      <div class="valid-feedback">
-      </div>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label>Contacto para el Soporte</label>
-        <input type="text" class="form-control" id="contacto_soporte" placeholder="Contacto del Soporte" required/>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
+          </div>
   </div>
   <div class="form-row">
-
-  <div class="col-md-6 mb-3">
-        <label>Problema/Motivo del Soporte</label>
-        <textarea class="form-control" id="motivo" placeholder="Ingrese Problema/Motivo del Soporte" required></textarea>
+      <div id="dato2" >
+          <label>Contacto</label>
+          <br>
+          <input type="text" name="contacto_soporte" placeholder="Contacto de la empresa que llamo para solicitar el soporte">
+          <br>
+          <label>Solución/Soporte Realizado</label>
+          <br>
+          <input type="text" name="solucion"  placeholder="Solución o Soporte realizado al cliente">
+          <br>
+          <label>Tipo de Soporte</label>
+          <br>
+          <input type="text" name="soporte"  placeholder="(Presencial/Remoto/Ambos)">
       </div>
-
-    <div class="col-md-6 mb-3">
-     <label>Solución o Soporte Realizado</label>
-        <textarea class="form-control" id="solucion" placeholder="Ingrese Solución o Soporte Realizado" required></textarea>
-    </div>
-    <div class="col-md-6 mb-3">
-       <label for="example-date-input" class="col-6 col-form-label">Fecha de Soporte</label>
-
-    </div>
-    <div class="col-md-3 mb-3">
-        <label>Soporte</label>
-        <!--<input type="text" class="form-control" id="cliente_soporte" value="Cliente Atendido" required>-->
-        <select class="custom-select" placeholder="Tipo de Soporte" id="validationCustom05" required>
-            <?php foreach ($soportes as $soporte):?>
-                <option><?php echo $soporte['soporte']?></option>
-            <?php  endforeach; ?>
-        </select>
-    </div>
+      <input type="submit" value="Agregar BItacora" href="agregar_bitacora.php">
   </div>
-  <button class="btn btn-primary" type="submit">Ingresar Bitacora</button>
+
 </form>
 </div>
 <!----End Form Bitacora---->
