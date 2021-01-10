@@ -61,7 +61,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
           <li><a href="../main/MainIn.php">Inicio</a></li>
             <li class="menu-has-children"><a href="">Bitacora</a>
                 <ul>
-                    <li><a href="#">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/main_bitacora.php  ">Mi Bitacora</a></li>
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                 </ul>
             </li>
@@ -92,7 +92,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
             <th scope="col">Acción</th>
           </tr>
         </thead>
-        <tbody id="myTable"     >
+        <tbody id="myTable"    >
           <?php foreach ($resultados as $cliente):?>
               <tr>
                   <th scope="row"><?php echo $cliente['rtn']?></th>

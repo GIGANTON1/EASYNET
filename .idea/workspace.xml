@@ -4,10 +4,9 @@
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/bitacora.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.html" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.html" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +78,7 @@
       <workItem from="1609460895808" duration="5548000" />
       <workItem from="1610038049296" duration="9641000" />
       <workItem from="1610243184058" duration="2543000" />
-      <workItem from="1610247928766" duration="8652000" />
+      <workItem from="1610247928766" duration="18634000" />
     </task>
     <servers />
   </component>
@@ -95,10 +94,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="117" y="259" width="1121" height="275" key="#SQL_Resolution_Scopes/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603400762018" />
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605804030036">
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610290401579">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605804030036" />
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610290401579" />
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602428001508">
       <screen x="0" y="27" width="1360" height="741" />
     </state>

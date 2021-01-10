@@ -1,28 +1,28 @@
 <?php
 require_once "../conexionDB/conexion.php";
-
 $clientes = $pdo->query("SELECT * FROM cliente");
 $soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
 if (!empty($_POST)) {
-    $cliente = $_POST['nombre_cliente'];
+    $nombre = $_POST['cliente'];
     $contacto = $_POST['contacto_soporte'];
     $motivo = $_POST['motivo'];
-    $solucion = $_POST['solucion'];
-    $soport = $_POST['soporte'];
+    $solucion= $_POST['solucion'];
+    $soporte = $_POST['soporte'];
+    $fecha = $_POST['fecha'];
 
-    if (empty($nombre) ||empty($contacto) || empty($motivo) || empty($solucion) || empty($soport)) {
+    if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte)|| empty($fecha)) {
         $mensajes[] = "Todos los campos son obligatorios";
     }
     $ingreso = 0;
     if (empty($mensajes)) {
-        $ingreso = ("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, soporte)"
-            . " VALUES ('$nombre','$contacto', '$motivo', '$solucion', '$soport')");
+        $ingreso = $pdo->exec("INSERT INTO bitacora"
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, soporte, fecha)"
+            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha')");
     }
     if ($ingreso >= 1) {
-        $mensajes[] = "";
+        $mensajes[] = "Bitacora del cliente " . $nombre .  " agregado exitosamente";
     } else {
-        $mensajes[] = "Hubo un error al agregar la nueva bitacora.";
+        $mensajes[] = "Hubo un error al crear su usuario.";
     }
 }
 ?>
@@ -70,7 +70,7 @@ if (!empty($_POST)) {
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
-          <li><a href="#">Mi Bitacora</a></li>
+          <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
                         <li><a href="../forms/agregar_cliente.html">Agregar Clientes</a></li>
@@ -102,7 +102,7 @@ if (!empty($_POST)) {
       <div class="col-sm">
           <div id="dato1" >
               <label>Cliente Atendido</label>
-              <select class="cliente" placeholder="Cliente Atendido" >
+              <select  placeholder="Cliente Atendido" name="cliente">
                   <?php foreach ($clientes as $cliente):?>
                       <option><?php echo $cliente['nombre_cliente']?></option>
                   <?php  endforeach; ?>
@@ -132,9 +132,16 @@ if (!empty($_POST)) {
           <br>
           <label>Tipo de Soporte</label>
           <br>
-          <input type="text" name="soporte"  placeholder="(Presencial/Remoto/Ambos)">
+          <select  placeholder="Tipo de Soporte" name="soporte">
+              <?php foreach ($soportes as $soporte):?>
+                  <option><?php echo $soporte['soporte']?></option>
+              <?php  endforeach; ?>
+          </select>
       </div>
-      <input type="submit" value="Agregar BItacora" href="agregar_bitacora.php">
+      <!--<input type="submit" value="Agregar BItacora" href="">-->
+      <div class="botones">
+          <input type="submit" value="Agregar Cliente" href="clientes.php">
+      </div>
   </div>
 
 </form>

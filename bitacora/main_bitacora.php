@@ -1,3 +1,8 @@
+<?php
+require_once "../conexionDB/conexion.php";
+$resultados = $pdo->query("SELECT * FROM bitacora");
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +61,7 @@
           <!--<li><a href="#">Mi Bitacora</a></li>-->
           <li class="menu-has-children"><a href="">Bitácora</a>
                       <ul>
-                        <li><a href="#">Mi Bitácora</a></li>
+                        <li><a href="../bitacora/main_bitacora.php">Mi Bitácora</a></li>
                         <li><a href="bitacora.php">Nueva Bitácora</a></li>
                       </ul>
           </li>
@@ -80,61 +85,29 @@
 
 
     <div class="intro-text">
-      <div class="bitacora" >
-      <table id="paginationSimpleNumbers" class="table" width="100%">
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="th-sm">Name
-            </th>
-            <th class="th-sm">Position
-            </th>
-            <th class="th-sm">Office
-            </th>
-            <th class="th-sm">Age
-            </th>
-            <th class="th-sm">Start date
-            </th>
-            <th class="th-sm">Salary
-            </th>
+            <th scope="col">Fecha de Soporte</th>
+            <th scope="col">Cliente Atendido</th>
+            <th scope="col">Motivo de Soporte</th>
+            <th scope="col">Soporte Dado</th>
+            <th scope="col">Soporte solicitado por</th>
           </tr>
         </thead>
-        <tbody>
+          <tbody id="myTable"    >
+          <?php foreach ($resultados as $bitacora):?>
+              <tr>
+                  <th scope="row"><?php echo $bitacora['fecha']?></th>
+                  <td><?php echo $bitacora['nombre_cliente']?></td>
+                  <td><?php echo $bitacora['motivo']?></td>
+                  <td><?php echo $bitacora['soporte']?></td>
+                  <td><?php echo $bitacora['contacto_soporte']?></td>
 
-          <tr>
-            <td>Jennifer Chang</td>
-            <td>Regional Director</td>
-            <td>Singapore</td>
-            <td>28</td>
-            <td>2010/11/14</td>
-            <td>$357,650</td>
-          </tr>
-          <tr>
-            <td>Brenden Wagner</td>
-            <td>Software Engineer</td>
-            <td>San Francisco</td>
-            <td>28</td>
-            <td>2011/06/07</td>
-            <td>$206,850</td>
-          </tr>
-          <tr>
-            <td>Fiona Green</td>
-            <td>Chief Operating Officer (COO)</td>
-            <td>San Francisco</td>
-            <td>48</td>
-            <td>2010/03/11</td>
-            <td>$850,000</td>
-          </tr>
-
+              </tr>
+          <?php endforeach; ?>
+          </tbody>
       </table>
-</div>
-<script >
-$(document).ready(function () {
-  //Pagination numbers
-  $('#paginationSimpleNumbers').DataTable({
-    "pagingType": "simple_numbers"
-  });
-});
-</script>
       <div class="footer">
 
         <div class="copyright">
