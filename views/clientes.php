@@ -6,6 +6,14 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- mdbootstrap -->
+    <link rel="stylesheet" href="../https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/style.css">
+
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -29,7 +37,11 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/cliente.css" rel="stylesheet">
-
+    <!-- MdBootstrap jquery -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
 </head>
 
 <body>
@@ -68,7 +80,10 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <h2>CLIENTES EASYNET</h2>
       <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
+
       <div class="table-responsive-l">
+          <input class="form-control mb-4" id="tableSearch" type="text"
+                 placeholder="Busqueda de clientes...">
       <table class="table table-hover" style="color:#fff">
         <thead>
           <tr>
@@ -78,7 +93,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
             <th scope="col">Acción</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable"     >
           <?php foreach ($resultados as $cliente):?>
               <tr>
                   <th scope="row"><?php echo $cliente['rtn']?></th>
@@ -95,7 +110,6 @@ $resultados = $pdo->query("SELECT * FROM cliente");
     <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
     <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
 </div>
-
       <!-- END TABLA DE CLIENTES -->
 
       <div class="footer">
@@ -106,6 +120,16 @@ $resultados = $pdo->query("SELECT * FROM cliente");
               Somos <strong>Equipo EasyNet</strong>
           </div>
       </div>
+        <script>
+            $(document).ready(function(){
+                $("#tableSearch").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
 
   </section>
   <!-- End Intro Section -->
