@@ -1,106 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>EasyNet - Distribuidor VIP</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="../assets/css/bitacora.css" rel="stylesheet">
-
+<title>Hola</title>
 </head>
-
 <body>
+<template lang="html">
+  <div>
+    <vs-table search :data="users">
+      <template slot="header">
+        <h3>
+          Users
+        </h3>
+      </template>
+      <template slot="thead">
+        <vs-th sort-key="email">
+          Email
+        </vs-th>
+        <vs-th sort-key="username">
+          Name
+        </vs-th>
+        <vs-th sort-key="id">
+          Nro
+        </vs-th>
+      </template>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+      <template slot-scope="{data}">
+        <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
+          <vs-td :data="data[indextr].email">
+            {{data[indextr].email}}
+          </vs-td>
 
-      <div id="logo" class="pull-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a>
-        <h1><a href="#intro" class="scrollto">EasyNet</a></h1>
-      </div>
+          <vs-td :data="data[indextr].username">
+            {{data[indextr].username}}
+          </vs-td>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
-          <!--<li><a href="#">Mi Bitacora</a></li>-->
-          <li class="menu-has-children"><a href="">Bitácora</a>
-                      <ul>
-                        <li><a href="#">Mi Bitácora</a></li>
-                        <li><a href="bitacora.php">Nueva Bitácora</a></li>
-                      </ul>
-          </li>
-          <li class="menu-has-children"><a href="">Clientes</a>
-                      <ul>
-                        <li><a href="../forms/agregar_cliente.html">Agregar Clientes</a></li>
-                        <li><a href="../views/clientes.php">Ver Clientes</a></li>
-                      </ul>
-          </li>
-          <li><a href="../forms/login.php">Cerrar Sesión</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- End Header -->
+          <vs-td :data="data[indextr].id">
+            {{data[indextr].id}}
+          </vs-td>
+        </vs-tr>
+      </template>
 
-  <!-- ======= Intro Section ======= -->
-  <section id="intro">
 
-    <div class="intro-text">
-      <div class="footer">
-        <div class="copyright">
-          &copy; Copyright <strong>EasyNet</strong>. All Rights Reserved 2020
-        </div>
-          Designed by <strong>EasyNet Team</strong>
-        </div>
-      </div>
+    </vs-table>
+  </div>
+</template>
 
-  </section>
-  <!-- End Intro Section -->
-<!--  <div class="footer">
-    <div class="col-lg-6 text-lg-left text-center">
-      <div class="copyright">
-        &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
-      </div>
-        Designed by <strong>Easy Net Team</strong>
-      </div>
-    </div>
-  </div>-->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
-  <script src="../assets/vendor/wow/wow.min.js"></script>
-  <script src="../assets/vendor/venobox/venobox.min.js"></script>
-  <script src="../assets/vendor/superfish/superfish.min.js"></script>
-  <script src="../assets/vendor/hoverIntent/hoverIntent.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+<script>
+export default {
+  data:()=>({
+    users:[
+      {
+        "id": 1,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "website": "hildegard.org",
+      },
+      {
+        "id": 2,
+        "name": "Ervin Howell",
+        "username": "Antonette",
+        "email": "Shanna@melissa.tv",
+        "website": "anastasia.net",
+      },
+      {
+        "id": 3,
+        "name": "Clementine Bauch",
+        "username": "Samantha",
+        "email": "Nathan@yesenia.net",
+        "website": "ramiro.info",
+      },
+      {
+        "id": 4,
+        "name": "Patricia Lebsack",
+        "username": "Karianne",
+        "email": "Julianne.OConner@kory.org",
+        "website": "kale.biz",
+      },
+      {
+        "id": 5,
+        "name": "Chelsey Dietrich",
+        "username": "Kamren",
+        "email": "Lucio_Hettinger@annie.ca",
+        "website": "demarco.info",
+      },
+      {
+        "id": 6,
+        "name": "Mrs. Dennis Schulist",
+        "username": "Leopoldo_Corkery",
+        "email": "Karley_Dach@jasper.info",
+        "website": "ola.org",
+      },
+      {
+        "id": 7,
+        "name": "Kurtis Weissnat",
+        "username": "Elwyn.Skiles",
+        "email": "Telly.Hoeger@billy.biz",
+        "website": "elvis.io",
+      },
+      {
+        "id": 8,
+        "name": "Nicholas Runolfsdottir V",
+        "username": "Maxime_Nienow",
+        "email": "Sherwood@rosamond.me",
+        "website": "jacynthe.com",
+      },
+      {
+        "id": 9,
+        "name": "Glenna Reichert",
+        "username": "Delphine",
+        "email": "Chaim_McDermott@dana.io",
+        "website": "conrad.com",
+      },
+      {
+        "id": 10,
+        "name": "Clementina DuBuque",
+        "username": "Moriah.Stanton",
+        "email": "Rey.Padberg@karina.biz",
+        "website": "ambrose.net",
+      }
+    ]
+  })
+}
+</script>
 
 </body>
-
 </html>
