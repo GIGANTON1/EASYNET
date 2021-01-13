@@ -59,11 +59,8 @@ $resultados = $pdo->query("SELECT * FROM bitacora");
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Inicio</a></li>
           <!--<li><a href="#">Mi Bitacora</a></li>-->
-          <li class="menu-has-children"><a href="">Bitácora</a>
-                      <ul>
-                        <li><a href="../bitacora/main_bitacora.php">Mi Bitácora</a></li>
-                        <li><a href="bitacora.php">Nueva Bitácora</a></li>
-                      </ul>
+          <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
+
           </li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>

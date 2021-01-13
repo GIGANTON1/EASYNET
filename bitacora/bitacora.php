@@ -140,7 +140,7 @@ if (!empty($_POST)) {
       </div>
       <!--<input type="submit" value="Agregar BItacora" href="">-->
       <div class="botones">
-          <input type="submit" value="Agregar Cliente" href="clientes.php">
+          <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
       </div>
   </div>
 

@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bitacora.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.html" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/ofertas.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/ofertas.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/MainIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/ofertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/ofertas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/servicios.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/servicios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/soporte.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/soporte.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,8 @@
       <workItem from="1609460895808" duration="5548000" />
       <workItem from="1610038049296" duration="9641000" />
       <workItem from="1610243184058" duration="2543000" />
-      <workItem from="1610247928766" duration="18634000" />
+      <workItem from="1610247928766" duration="19445000" />
+      <workItem from="1610479191707" duration="10034000" />
     </task>
     <servers />
   </component>

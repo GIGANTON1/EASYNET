@@ -47,7 +47,7 @@ require_once "../conexionDB/logedin.php";
           <li class="menu-active"><a href="#intro">Inicio</a></li>
           <li class="menu-has-children"><a href="">Bítacora/Soporte Técnico</a>
                           <ul>
-                            <li><a href="#">Mi Bitacora</a></li>
+                            <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
                             <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                             <li><a href="../views/clientes.php">Clientes</a></li>
                             <li><a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a></li>
