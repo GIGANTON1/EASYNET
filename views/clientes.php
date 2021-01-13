@@ -75,41 +75,55 @@ $resultados = $pdo->query("SELECT * FROM cliente");
   <section id="intro">
 
     <div class="intro-text">
-      <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
       <h2>CLIENTES EASYNET</h2>
-      <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
       <!-- TABLA DE CLIENTES -->
 
-      <div class="table-responsive-l">
-          <input class="form-control mb-4" id="tableSearch" type="text"
-                 placeholder="Busqueda de clientes...">
-      <table class="table table-hover" style="color:#fff">
-        <thead>
-          <tr>
-              <th scope="col">R.T.N.</th>
-              <th scope="col">Nombre Cliente</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Acción</th>
-          </tr>
-        </thead>
-        <tbody id="myTable"    >
-          <?php foreach ($resultados as $cliente):?>
-              <tr>
-                  <th scope="row"><?php echo $cliente['rtn']?></th>
-                  <td><?php echo $cliente['nombre_cliente']?></td>
-                  <td><?php echo $cliente['telefono']?></td>
-                  <td><submitt onclick="windowOpen()" class="icon"><i class="ion-ios-gear-outline"></i></submitt></td>
-              </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-</div>
+        <div class="card">
+            <div class="card-body">
+                <div id="table" class="table-editable">
 
-<div class="botones">
-    <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
-    <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
-</div>
-      <!-- END TABLA DE CLIENTES -->
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <input class="form-control mb-4" id="tableSearch" type="text"
+                               placeholder="Busqueda de clientes...">
+                        <thead>
+                        <tr>
+                            <th class="text-center">RTN</th>
+                            <th class="text-center">EMPRESA</th>
+                            <th class="text-center">DIRECCION</th>
+                            <th class="text-center">CORREO</th>
+                            <th class="text-center">TELEFONO</th>
+                            <th class="text-center">Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody id="myTable">
+                        <?php foreach ($resultados as $cliente):?>
+                        <tr>
+                            <th class="pt-3-half" contenteditable="true"><?php echo $cliente['rtn']?></th>
+                            <td class="pt-3-half" contenteditable="true"><?php echo $cliente['nombre_cliente']?></td>
+                            <td class="pt-3-half" contenteditable="true"><?php echo $cliente['direccion']?></td>
+                            <td class="pt-3-half" contenteditable="true"><?php echo $cliente['correo']?></td>
+                            <td class="pt-3-half" contenteditable="true"><?php echo $cliente['telefono']?></td>
+                            <td>
+
+              <span class="table-remove"><button type="button"
+                             class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                            </td>
+
+                        </tr>
+                        <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="botones">
+            <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
+            <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
+        </div>
+        <!-- END TABLA DE CLIENTES -->
 
       <div class="footer">
         <div class="copyright">
@@ -129,7 +143,48 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                 });
             });
         </script>
+        <script>
+            const $tableID = $('#table');
+            const $BTN = $('#export-btn');
+            const $EXPORT = $('#export');
+            $tableID.on('click', '.table-remove', function () {
+                $(this).parents('tr').detach();
+            });
+            // A few jQuery helpers for exporting only
+            jQuery.fn.pop = [].pop;
+            jQuery.fn.shift = [].shift;
 
+            $BTN.on('click', () => {
+
+                const $rows = $tableID.find('tr:not(:hidden)');
+                const headers = [];
+                const data = [];
+
+                // Get the headers (add special header logic here)
+                $($rows.shift()).find('th:not(:empty)').each(function () {
+
+                    headers.push($(this).text().toLowerCase());
+                });
+
+                // Turn all existing rows into a loopable array
+                $rows.each(function () {
+                    const $td = $(this).find('td');
+                    const h = {};
+
+                    // Use the headers from earlier to name our hash keys
+                    headers.forEach((header, i) => {
+
+                        h[header] = $td.eq(i).text();
+                    });
+
+                    data.push(h);
+                });
+
+                // Output the result
+                $EXPORT.text(JSON.stringify(data));
+            });
+        </script>
+    </div>
   </section>
   <!-- End Intro Section -->
 
@@ -147,15 +202,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <script>
-      var Window;
-      function windowOpen() {
-          Window = window.open(
-              "../forms/login.html",
-              "_blank", "width=400, height=450");
-      }
 
-  </script>
 </body>
 
 </html>
