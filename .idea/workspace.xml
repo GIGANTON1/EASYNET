@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bitacora.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/cliente.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/cliente.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/MainIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +38,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -76,7 +84,7 @@
       <workItem from="1610038049296" duration="9641000" />
       <workItem from="1610243184058" duration="2543000" />
       <workItem from="1610247928766" duration="19445000" />
-      <workItem from="1610479191707" duration="18884000" />
+      <workItem from="1610479191707" duration="41226000" />
     </task>
     <servers />
   </component>
@@ -84,26 +92,26 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="433" y="228" width="484" height="337" key="#Notifications" timestamp="1601944371568">
-      <screen x="0" y="27" width="1360" height="741" />
-    </state>
-    <state x="433" y="228" width="484" height="337" key="#Notifications/0.27.1360.741/0.27.1360.741@0.27.1360.741" timestamp="1601944371568" />
     <state x="117" y="259" width="1121" height="275" key="#SQL_Resolution_Scopes" timestamp="1603400762018">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="117" y="259" width="1121" height="275" key="#SQL_Resolution_Scopes/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1603400762018" />
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610290401579">
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610667224199">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610290401579" />
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610667224199" />
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602428001508">
       <screen x="0" y="27" width="1360" height="741" />
     </state>
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1360.741/0.27.1360.741@0.27.1360.741" timestamp="1602428001508" />
-    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog" timestamp="1605817944991">
+    <state x="470" y="105" width="415" height="583" key="NewPhpClassDialog" timestamp="1610664367698">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="503" y="319" width="349" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1605817944991" />
+    <state x="470" y="105" width="415" height="583" key="NewPhpClassDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610664367698" />
+    <state x="503" y="319" width="329" height="154" key="NewPhpFileDialog" timestamp="1610663813150">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="503" y="319" width="329" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610663813150" />
     <state x="185" y="32" key="SettingsEditor" timestamp="1602692867912">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

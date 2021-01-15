@@ -1,6 +1,7 @@
 <?php
 require_once "../conexionDB/conexion.php";
-$resultados = $pdo->query("SELECT * FROM cliente");
+$resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
+ usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +79,7 @@ $resultados = $pdo->query("SELECT * FROM cliente");
       <h2>CLIENTES EASYNET</h2>
       <!-- TABLA DE CLIENTES -->
 
-        <div class="card">
+        <div class="w-100 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
 
@@ -92,7 +93,8 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                             <th class="text-center">DIRECCION</th>
                             <th class="text-center">CORREO</th>
                             <th class="text-center">TELEFONO</th>
-                            <th class="text-center">Remove</th>
+                            <th class="text-center">SOPORTISTA</th>
+                            <th class="text-center">BORRAR</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -103,12 +105,11 @@ $resultados = $pdo->query("SELECT * FROM cliente");
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['direccion']?></td>
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['correo']?></td>
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['telefono']?></td>
+                            <td class="pt-3-half" contenteditable="true"><?php echo $cliente['usuario']?></td>
                             <td>
-
               <span class="table-remove"><button type="button"
                              class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
                             </td>
-
                         </tr>
                         <?php endforeach; ?>
 
@@ -118,9 +119,8 @@ $resultados = $pdo->query("SELECT * FROM cliente");
             </div>
         </div>
 
-
         <div class="botones">
-            <a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a>
+            <a href="../forms/agregar_clientes.php">Agregar Nuevo Cliente</a>
             <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
         </div>
         <!-- END TABLA DE CLIENTES -->

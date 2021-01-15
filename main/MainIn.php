@@ -50,7 +50,7 @@ require_once "../conexionDB/logedin.php";
                             <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
                             <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                             <li><a href="../views/clientes.php">Clientes</a></li>
-                            <li><a href="../forms/agregar_cliente.html">Agregar Nuevo Cliente</a></li>
+                            <li><a href="../forms/agregar_clientes.php">Agregar Nuevo Cliente</a></li>
                           </ul>
                     </li>
           <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>

@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   color: #fff;
   padding: 2px 20px 8px 20px;
   font-size: 16px;
@@ -123,13 +123,12 @@ h1, h2, h3, h4, h5, h6 {
 # Intro Section
 --------------------------------------------------------------*/
 #intro {
-  width: 100%;
-
-  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8)), url("../../imgs/fondo.jpg") center top no-repeat;
-  background-size: cover;
+  /*width: 100%;
+*/  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8)), url("../../imgs/fondo.jpg") center top no-repeat;
+  /*background-size: cover;
   position: fixed;
   background-attachment: fixed;
-  overflow: scroll;
+  overflow: scroll;*/
 }
 /* #intro img {
   padding: 0;
@@ -141,8 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 1025px) {
   #intro {
-    background-attachment: fixed;
-  }
+    /*background-attachment: fixed;
+*/  }
 }
 #intro .intro-text {
   left: 0;
@@ -160,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 1.4rem;
 }
 #intro h2 {
-  margin: 10px 0;
+  margin: 65px 0 0 0;
   padding: 0 15px;
   font-size: 45px;
   font-weight: 525;
@@ -480,6 +479,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro .intro-text .footer {
   color: #fff;
   font-size: 15px;
+  height: 85px;
 }
 
 /* Formulario Agregar CLIENTE */

@@ -1,7 +1,7 @@
 <?php
 require_once "../conexionDB/conexion.php";
 $clientes = $pdo->query("SELECT * FROM cliente");
-$soportes    = $pdo->query("SELECT soporte FROM tipo_soporte");
+$soportes    = $pdo->query("SELECT * FROM tipo_soporte");
 if (!empty($_POST)) {
     $nombre = $_POST['cliente'];
     $contacto = $_POST['contacto_soporte'];
@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     $ingreso = 0;
     if (empty($mensajes)) {
         $ingreso = $pdo->exec("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, soporte, fecha)"
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha)"
             . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha')");
     }
     if ($ingreso >= 1) {
@@ -73,7 +73,7 @@ if (!empty($_POST)) {
           <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
-                        <li><a href="../forms/agregar_cliente.html">Agregar Clientes</a></li>
+                        <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
                       </ul>
           </li>
@@ -133,8 +133,8 @@ if (!empty($_POST)) {
           <label>Tipo de Soporte</label>
           <br>
           <select  placeholder="Tipo de Soporte" name="soporte">
-              <?php foreach ($soportes as $soporte):?>
-                  <option><?php echo $soporte['soporte']?></option>
+              <?php foreach ($soportes as $soport):?>
+                  <option value="<?php echo $soport['id_soporte']?>"><?php echo $soport['soporte']?></option>
               <?php  endforeach; ?>
           </select>
       </div>

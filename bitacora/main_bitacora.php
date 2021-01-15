@@ -1,6 +1,6 @@
 <?php
 require_once "../conexionDB/conexion.php";
-$resultados = $pdo->query("SELECT * FROM bitacora");
+$resultados = $pdo->query("SELECT * FROM bitacora order by fecha desc");
 
 ?>
 
@@ -18,7 +18,7 @@ $resultados = $pdo->query("SELECT * FROM bitacora");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EasyNet - Distribuidor VIP</title>
+  <title>EasyNet - Bitácora de Soporte</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -64,7 +64,7 @@ $resultados = $pdo->query("SELECT * FROM bitacora");
           </li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
-                        <li><a href="../forms/agregar_cliente.html">Agregar Clientes</a></li>
+                        <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
                       </ul>
           </li>
@@ -82,29 +82,39 @@ $resultados = $pdo->query("SELECT * FROM bitacora");
 
 
     <div class="intro-text">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Fecha de Soporte</th>
-            <th scope="col">Cliente Atendido</th>
-            <th scope="col">Motivo de Soporte</th>
-            <th scope="col">Soporte Dado</th>
-            <th scope="col">Soporte solicitado por</th>
-          </tr>
-        </thead>
-          <tbody id="myTable"    >
-          <?php foreach ($resultados as $bitacora):?>
-              <tr>
-                  <th scope="row"><?php echo $bitacora['fecha']?></th>
-                  <td><?php echo $bitacora['nombre_cliente']?></td>
-                  <td><?php echo $bitacora['motivo']?></td>
-                  <td><?php echo $bitacora['soporte']?></td>
-                  <td><?php echo $bitacora['contacto_soporte']?></td>
+        <h2>BITACORA DE SOPORTE</h2>
+        <div class="w-100 p-3"  style="background-color: #eeeeee">
+            <div class="card-body">
+                <div id="table" class="table-editable">
 
-              </tr>
-          <?php endforeach; ?>
-          </tbody>
-      </table>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <input class="form-control mb-4" id="tableSearch" type="text"
+                               placeholder="Busqueda de bitacora">
+                        <thead>
+                        <tr>
+                            <th class="text-center">NOMBRE CLIENTE</th>
+                            <th class="text-center">CONTACTO DE SOPORTE</th>
+                            <th class="text-center">MOTIVO</th>
+                            <th class="text-center">SOLUCION</th>
+                            <th class="text-center">FECHA</th>
+                        </tr>
+                        </thead>
+                        <tbody id="myTable">
+                        <?php foreach ($resultados as $bitacoras):?>
+                            <tr>
+                                <th class="pt-3-half" contenteditable="true"><?php echo $bitacoras['nombre_cliente']?></th>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['contacto_soporte']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['motivo']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['solucion']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['fecha']?></td>
+                            </tr>
+                        <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
       <div class="footer">
 
         <div class="copyright">
@@ -113,8 +123,17 @@ $resultados = $pdo->query("SELECT * FROM bitacora");
           Designed by <strong>EasyNet Team</strong>
         </div>
       </div>
-
   </section>
+  <script>
+      $(document).ready(function(){
+          $("#tableSearch").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
   <!-- End Intro Section -->
 <!--  <div class="footer">
     <div class="col-lg-6 text-lg-left text-center">

@@ -1,3 +1,7 @@
+<?php
+require_once "../conexionDB/conexion.php";
+$usuario = $pdo->query("SELECT * FROM usuarios");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,6 +105,13 @@
     </div>
     </div>
     </div>
+    <div>
+    <select  placeholder="Soportista" name="usuario">
+                  <?php foreach ($usuario as $usuarios):?>
+                      <option value="<?php echo $usuarios['id_usuario']?>"><?php echo $usuarios['usuario']?></option>
+                  <?php  endforeach; ?>
+              </select>
+</div>
     <div class="botones">
       <input type="submit" value="Agregar Cliente" href="clientes.php">
         <a href="../views/clientes.php">Ver Clientes</a>
