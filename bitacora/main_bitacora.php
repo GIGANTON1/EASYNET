@@ -1,6 +1,10 @@
 <?php
 require_once "../conexionDB/conexion.php";
-$resultados = $pdo->query("SELECT * FROM bitacora order by fecha desc");
+$resultados = $pdo->query("SELECT 
+bitacora.nombre_cliente, bitacora.contacto_soporte,
+bitacora.motivo, bitacora.solucion, bitacora.fecha, tipo_soporte.soporte
+FROM easy_net.bitacora
+inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte");
 
 ?>
 
@@ -83,7 +87,7 @@ $resultados = $pdo->query("SELECT * FROM bitacora order by fecha desc");
 
     <div class="intro-text">
         <h2>BITACORA DE SOPORTE</h2>
-        <div class="w-100 p-3"  style="background-color: #eeeeee">
+        <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
 
@@ -96,6 +100,7 @@ $resultados = $pdo->query("SELECT * FROM bitacora order by fecha desc");
                             <th class="text-center">CONTACTO DE SOPORTE</th>
                             <th class="text-center">MOTIVO</th>
                             <th class="text-center">SOLUCION</th>
+                            <th class="text-center">TIPO SOPORTE</th>
                             <th class="text-center">FECHA</th>
                         </tr>
                         </thead>
@@ -106,6 +111,7 @@ $resultados = $pdo->query("SELECT * FROM bitacora order by fecha desc");
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['contacto_soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['motivo']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['solucion']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['fecha']?></td>
                             </tr>
                         <?php endforeach; ?>

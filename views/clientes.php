@@ -1,7 +1,14 @@
 <?php
 require_once "../conexionDB/conexion.php";
-$resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
+$resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
+
+
+/*$id= $_GET['id_cliente'];
+$eliminar= $pdo->query("Delete From cliente Where id_cliente = {'$id'}", PDO::FETCH_ASSOC);
+*/
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +30,7 @@ $resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.d
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-    <link rel="shortcut icon" type="image/x-icon" href="../imgs/logo_easynet.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../imgs/logo_easynet.ico"/>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -79,7 +86,7 @@ $resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.d
       <h2>CLIENTES EASYNET</h2>
       <!-- TABLA DE CLIENTES -->
 
-        <div class="w-100 p-3"  style="background-color: #eeeeee">
+        <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
 
@@ -107,8 +114,11 @@ $resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.d
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['telefono']?></td>
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['usuario']?></td>
                             <td>
-              <span class="table-remove"><button type="button"
-                             class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+              <span class="table-remove" name="eliminar" id="" value="<?php $cliente['id_cliente']?>">
+                  <button type="button" name="eliminar"
+                             class="btn btn-danger btn-rounded btn-sm my-0">Eliminar
+                  </button>
+              </span>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -143,47 +153,7 @@ $resultados = $pdo->query("select cliente.rtn, cliente.nombre_cliente, cliente.d
                 });
             });
         </script>
-        <script>
-            const $tableID = $('#table');
-            const $BTN = $('#export-btn');
-            const $EXPORT = $('#export');
-            $tableID.on('click', '.table-remove', function () {
-                $(this).parents('tr').detach();
-            });
-            // A few jQuery helpers for exporting only
-            jQuery.fn.pop = [].pop;
-            jQuery.fn.shift = [].shift;
 
-            $BTN.on('click', () => {
-
-                const $rows = $tableID.find('tr:not(:hidden)');
-                const headers = [];
-                const data = [];
-
-                // Get the headers (add special header logic here)
-                $($rows.shift()).find('th:not(:empty)').each(function () {
-
-                    headers.push($(this).text().toLowerCase());
-                });
-
-                // Turn all existing rows into a loopable array
-                $rows.each(function () {
-                    const $td = $(this).find('td');
-                    const h = {};
-
-                    // Use the headers from earlier to name our hash keys
-                    headers.forEach((header, i) => {
-
-                        h[header] = $td.eq(i).text();
-                    });
-
-                    data.push(h);
-                });
-
-                // Output the result
-                $EXPORT.text(JSON.stringify(data));
-            });
-        </script>
     </div>
   </section>
   <!-- End Intro Section -->

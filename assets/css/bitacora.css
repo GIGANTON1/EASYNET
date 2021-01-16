@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   color: #fff;
   padding: 2px 20px 8px 20px;
   font-size: 16px;
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:focus {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   color: #fff;
   outline: none;
 }
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-fixed {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8));
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -146,7 +146,7 @@ h1, h2, h3, h4, h5, h6 {
 #intro .intro-text {
   position: absolute;
   left: 0;
-  top: 20px;
+  top: 50px;
   right: 0;
   height: calc(50% - 60px);
   display: flex;
