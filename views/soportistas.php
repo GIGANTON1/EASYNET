@@ -1,6 +1,6 @@
 <?php
 require_once "../conexionDB/conexion.php";
-$resultados = $pdo->query("SELECT usuarios.usuario, cargos.cargos FROM easy_net.usuarios 
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos;");
 ?>
 
@@ -105,7 +105,7 @@ $resultados = $pdo->query("SELECT usuarios.usuario, cargos.cargos FROM easy_net.
                                 <th class="pt-3-half" contenteditable="true"><?php echo $usuario['usuario']?></th>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $usuario['cargos']?></td>
                                 <td>
-              <span class="table-remove"><button type="button"
+              <span class="table-remove"><button type="button" role="link" onclick="location.href='../conexionDB/eliminar_soportista.php?id_usuario=<?php echo $usuario['id_usuario']?> '; "
                                                  class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>
                                 </td>
                             </tr>

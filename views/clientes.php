@@ -2,12 +2,11 @@
 require_once "../conexionDB/conexion.php";
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
-
-
-/*$id= $_GET['id_cliente'];
-$eliminar= $pdo->query("Delete From cliente Where id_cliente = {'$id'}", PDO::FETCH_ASSOC);
-*/
-
+//Eliminacion del cliente
+/*$id = $_GET['eliminar'];
+$eliminar=$pdo->prepare("DELETE FROM cliente  WHERE id_cliente=:id");
+$eliminar->bindParam(":id   ",$id,PDO::PARAM_INT);
+$eliminar->execute();*/
 
 ?>
 
@@ -95,13 +94,14 @@ $eliminar= $pdo->query("Delete From cliente Where id_cliente = {'$id'}", PDO::FE
                                placeholder="Busqueda de clientes...">
                         <thead>
                         <tr>
-                            <th class="text-center">RTN</th>
+                            <th class="text-center">R.T.N. EMPRESA</th>
                             <th class="text-center">EMPRESA</th>
                             <th class="text-center">DIRECCION</th>
                             <th class="text-center">CORREO</th>
                             <th class="text-center">TELEFONO</th>
                             <th class="text-center">SOPORTISTA</th>
                             <th class="text-center">BORRAR</th>
+                            <th class="text-center">EDITAR</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -114,11 +114,11 @@ $eliminar= $pdo->query("Delete From cliente Where id_cliente = {'$id'}", PDO::FE
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['telefono']?></td>
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['usuario']?></td>
                             <td>
-              <span class="table-remove" name="eliminar" id="" value="<?php $cliente['id_cliente']?>">
-                  <button type="button" name="eliminar"
-                             class="btn btn-danger btn-rounded btn-sm my-0">Eliminar
-                  </button>
-              </span>
+                                <span class="table-remove"><button type="button" role="link" onclick="location.href='../conexionDB/eliminar_cliente.php?id_cliente=<?php echo $cliente['id_cliente']?>  '; "
+                                                                   class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success" role="link" onclick="location.href='../forms/actualizar_cliente.php?id_cliente=<?php echo $cliente['id_cliente']?>'; "><i class="ion-edit" ></i></button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -152,8 +152,49 @@ $eliminar= $pdo->query("Delete From cliente Where id_cliente = {'$id'}", PDO::FE
                     });
                 });
             });
-        </script>
 
+        </script>
+        <script>
+            const $tableID = $('#table');
+            const $BTN = $('#export-btn');
+            const $EXPORT = $('#export');
+            $tableID.on('click', '.table-remove', function () {
+                $(this).parents('tr').detach();
+            });
+            // A few jQuery helpers for exporting only
+            jQuery.fn.pop = [].pop;
+            jQuery.fn.shift = [].shift;
+
+            $BTN.on('click', () => {
+
+                const $rows = $tableID.find('tr:not(:hidden)');
+                const headers = [];
+                const data = [];
+
+                // Get the headers (add special header logic here)
+                $($rows.shift()).find('th:not(:empty)').each(function () {
+
+                    headers.push($(this).text().toLowerCase());
+                });
+
+                // Turn all existing rows into a loopable array
+                $rows.each(function () {
+                    const $td = $(this).find('td');
+                    const h = {};
+
+                    // Use the headers from earlier to name our hash keys
+                    headers.forEach((header, i) => {
+
+                        h[header] = $td.eq(i).text();
+                    });
+
+                    data.push(h);
+                });
+
+                // Output the result
+                $EXPORT.text(JSON.stringify(data));
+            });
+        </script>
     </div>
   </section>
   <!-- End Intro Section -->
