@@ -121,11 +121,12 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
                     <option value="<?php echo $cliente['id_usuario']?>"><?php echo $cliente['usuario']?></option>
                 </select>
             </div>
-            <?php endforeach; ?>
+
             <div class="botones">
-                <input type="submit" value="Actualizar Cliente" href="clientes.php">
+                <input type="submit" value="Actualizar Cliente" href="../conexionDB/actualizar_cliente.php?id_cliente=<?php echo $cliente["id_cliente"]; ?>">
                 <a href="../views/clientes.php">Ver Clientes</a>
             </div>
+            <?php endforeach; ?>
         </form>
 
         <!-- End formulario agregar clientes -->

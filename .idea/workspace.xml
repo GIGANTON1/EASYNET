@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/actualizar_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/actualizar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_cliente.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/soportistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/soportistas.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,8 @@
       <workItem from="1610243184058" duration="2543000" />
       <workItem from="1610247928766" duration="19445000" />
       <workItem from="1610479191707" duration="62453000" />
-      <workItem from="1610987204567" duration="16354000" />
+      <workItem from="1610987204567" duration="16368000" />
+      <workItem from="1611028509585" duration="7765000" />
     </task>
     <servers />
   </component>
@@ -103,6 +105,10 @@
       <screen x="0" y="27" width="1360" height="741" />
     </state>
     <state x="417" y="201" width="515" height="391" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1360.741/0.27.1360.741@0.27.1360.741" timestamp="1602428001508" />
+    <state x="100" y="127" width="1166" height="541" key="DiffContextDialog" timestamp="1611029455173">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="100" y="127" width="1166" height="541" key="DiffContextDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1611029455173" />
     <state x="470" y="105" width="415" height="583" key="NewPhpClassDialog" timestamp="1610664367698">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

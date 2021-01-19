@@ -2,11 +2,6 @@
 require_once "../conexionDB/conexion.php";
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
-//Eliminacion del cliente
-/*$id = $_GET['eliminar'];
-$eliminar=$pdo->prepare("DELETE FROM cliente  WHERE id_cliente=:id");
-$eliminar->bindParam(":id   ",$id,PDO::PARAM_INT);
-$eliminar->execute();*/
 
 ?>
 
@@ -114,7 +109,7 @@ $eliminar->execute();*/
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['telefono']?></td>
                             <td class="pt-3-half" contenteditable="true"><?php echo $cliente['usuario']?></td>
                             <td>
-                                <span class="table-remove"><button type="button" role="link" onclick="location.href='../conexionDB/eliminar_cliente.php?id_cliente=<?php echo $cliente['id_cliente']?>  '; "
+                                <span class="table-remove"><button type="button" role="link     " onclick="location.href='../conexionDB/eliminar_cliente.php?id_cliente=<?php echo $cliente['id_cliente']?>  '; "
                                                                    class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>
                             </td>
                             <td>
