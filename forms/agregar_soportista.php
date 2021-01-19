@@ -1,5 +1,11 @@
 <?php
 require_once "../conexionDB/conexion.php";
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if (!$iniciado) {
+    header("Location: ../forms/login.html");
+    exit();
+}
 $cargo = $pdo->query("SELECT * FROM cargos");
 if (!empty($_POST)) {
     $usuario = $_POST['nombre'];

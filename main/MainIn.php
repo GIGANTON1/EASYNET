@@ -1,5 +1,11 @@
 <?php
-require_once "../conexionDB/logedin.php";
+require_once "../conexionDB/conexion.php";
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if (!$iniciado) {
+    header("Location: ../forms/login.html");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +59,13 @@ require_once "../conexionDB/logedin.php";
                             <li><a href="../forms/agregar_clientes.php">Agregar Nuevo Cliente</a></li>
                           </ul>
                     </li>
-          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+            <i class="ion-android-person" style="color: white"></i>
+            <li class="menu-has-children"><a href="">Perfil</a>
+                <ul>
+                    <li><?php echo $_SESSION['iniciado']?></li>
+                    <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

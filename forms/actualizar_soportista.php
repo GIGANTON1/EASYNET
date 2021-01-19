@@ -6,14 +6,9 @@ if (!$iniciado) {
     header("Location: ../forms/login.html");
     exit();
 }
-$usuario = $pdo->query("SELECT * FROM usuarios");
-$resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.contacto, cliente.direccion, cliente.correo, cliente.telefono, 
- usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario WHERE cliente.id_cliente = '" . $_GET["id_cliente"] . "'");
-
-
-
-
-
+$cargo = $pdo->query("SELECT * FROM cargos");
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos FROM easy_net.usuarios 
+    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +16,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>EasyNet - Nuevo Cliente</title>
+    <title>EasyNet - Actualizar Agente Soporte Técnico</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
@@ -39,7 +34,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
     <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/agregar_clientes.css" rel="stylesheet">
+    <link href="../assets/css/agregar_soportista.css" rel="stylesheet">
 
 </head>
 
@@ -75,64 +70,46 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
 
     <div class="intro-text">
         <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
-        <h2>ACTUALIZAR CLIENTE EASYNET</h2>
+        <h2>ACTUALIZAR SOPORTISTA</h2>
         <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
 
         <!-- formulario agregar clientes -->
 
-
-
-        <form class="box" action="../conexionDB/actualizar_cliente.php" method="post" >
+        <form class="box" action="" method="post" >
             <!-- primera columna -->
             <div class="row">
-
                 <div class="col-sm">
-                    <?php foreach ($resultados as $cliente):?>
+                    <?php foreach ($resultados as $usuario):?>
                     <div id="dato1" >
-                        <label>Empresa</label>
+                        <label>Nombre de Soportista</label>
                         <br>
-                        <input type="text" name="nombre" value="<?php echo $cliente['nombre_cliente']?>" placeholder="Nombre del Cliente" >
-                        <br>
-                        <label>R.T.N</label>
-                        <br>
-                        <input type="text" name="rtn"  placeholder="RTN del Cliente" value="<?php echo $cliente['rtn']?>">
-                        <br>
-                        <label>Dirección</label>
-                        <br>
-                        <input type="text" name="direccion"  placeholder="Dirección del Cliente" value="<?php echo $cliente['direccion']?>">
-
+                        <input type="text" name="nombre" placeholder="Nombre del Soportista" value="<?php echo $usuario['usuario']?>">
                     </div>
+
                 </div>
                 <!-- segunda columna -->
                 <div class="col-sm">
+
                     <div id="dato2" >
-                        <label>Contacto</label>
+                        <label>Contraseña</label>
                         <br>
-                        <input type="text" name="contacto" placeholder="Contacto de la Empresa" value="<?php echo $cliente['contacto']?>">
-                        <br>
-                        <label># Teléfono</label>
-                        <br>
-                        <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" value="<?php echo $cliente['telefono']?>">
-                        <br>
-                        <label>Correo Electrónico</label>
-                        <br>
-                        <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente" value="<?php echo $cliente['correo']?>">
+                        <input type="password" name="contraseña" placeholder="Contraseña del soportista" value="<?php echo $usuario['contra']?>">
                     </div>
+
                 </div>
-
+                <?php  endforeach; ?>
             </div>
-
             <div>
-                <select  placeholder="Soportista" name="usuario">
-                    <option value="<?php echo $cliente['id_usuario']?>"><?php echo $cliente['usuario']?></option>
+                <select  placeholder="Soportista" name="cargos">
+                    <?php foreach ($cargo as $cargos):?>
+                        <option value="<?php echo $cargos['id_cargos']?>"><?php echo $cargos['cargos']?></option>
+                    <?php  endforeach; ?>
                 </select>
             </div>
-
             <div class="botones">
-                <input type="submit" value="Actualizar Cliente" href="../conexionDB/actualizar_cliente.php?id_cliente=<?php echo $cliente["id_cliente"]; ?>">
-                <a href="../views/clientes.php">Ver Clientes</a>
+                <input type="submit" value="Actualizar Soportista" href="../conexionDB/actualizar_soportista.php?id_usuario=<?php echo $usuario["id_usuario"]; ?>">
+                <a href="../views/soportistas.php">Ver Soportistas</a>
             </div>
-            <?php endforeach; ?>
         </form>
 
         <!-- End formulario agregar clientes -->

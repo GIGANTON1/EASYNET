@@ -1,5 +1,12 @@
 <?php
 require_once "../conexionDB/conexion.php";
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if (!$iniciado) {
+    $usuario = $_SESSION['iniciado'];
+    header("Location: ../forms/login.html");
+    exit();
+}
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
 
@@ -67,7 +74,13 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                 </ul>
             </li>
-          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+            <i class="ion-android-person" style="color: white"></i>
+            <li class="menu-has-children"><a href="">Perfil</a>
+                <ul>
+                    <li><?php echo $_SESSION['iniciado']?></li>
+                    <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

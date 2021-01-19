@@ -1,5 +1,11 @@
 <?php
 require_once "../conexionDB/conexion.php";
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if (!$iniciado) {
+    header("Location: ../forms/login.html");
+    exit();
+}
 $clientes = $pdo->query("SELECT * FROM cliente");
 $soportes    = $pdo->query("SELECT * FROM tipo_soporte");
 if (!empty($_POST)) {

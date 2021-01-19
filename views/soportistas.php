@@ -1,5 +1,11 @@
 <?php
 require_once "../conexionDB/conexion.php";
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if (!$iniciado) {
+    header("Location: ../forms/login.html");
+    exit();
+}
 $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos;");
 ?>
@@ -97,6 +103,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                             <th class="text-center">NOMBRE SOPORTISTA</th>
                             <th class="text-center">CARGO EN LA EMPRESA</th>
                             <th class="text-center">BORRAR</th>
+                            <th class="text-center">EDITAR</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -107,6 +114,9 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                                 <td>
               <span class="table-remove"><button type="button" role="link" onclick="location.href='../conexionDB/eliminar_soportista.php?id_usuario=<?php echo $usuario['id_usuario']?> '; "
                                                  class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success" role="link" onclick="location.href='../forms/actualizar_soportista.php?id_usuario=<?php echo $usuario['id_usuario']?>'; "><i class="ion-edit" ></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
