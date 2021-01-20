@@ -3,12 +3,12 @@ require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 if (!$iniciado) {
-    header("Location: ../forms/login.html");
+    header("Location: ../forms/login_form.php");
     exit();
 }
-$cargo = $pdo->query("SELECT * FROM cargos");
-$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos FROM easy_net.usuarios 
-    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos, estado.estado FROM easy_net.usuarios 
+    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
+    inner join easy_net.estado on easy_net.usuarios.estado_id = easy_net.estado.id_estado WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,21 +95,29 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
                         <br>
                         <input type="password" name="contraseña" placeholder="Contraseña del soportista" value="<?php echo $usuario['contra']?>">
                     </div>
-
                 </div>
-                <?php  endforeach; ?>
+
             </div>
             <div>
-                <select  placeholder="Soportista" name="cargos">
-                    <?php foreach ($cargo as $cargos):?>
-                        <option value="<?php echo $cargos['id_cargos']?>"><?php echo $cargos['cargos']?></option>
-                    <?php  endforeach; ?>
+                <label class="mdb-main-label">Cargo</label<>
+                <select class="mdb-select md-form" name="cargos">
+
+                        <option value="<?php echo $usuario['id_cargos']?>"><?php echo $usuario['cargos']?></option>
+
+
+                </select>
+                <label class="mdb-main-label">Estado</label>
+                <select class="mdb-select md-form" name="estados">
+
+                        <option value="<?php echo $usuario['id_estado']?>"><?php echo $usuario['estado']?></option>
+
                 </select>
             </div>
             <div class="botones">
                 <input type="submit" value="Actualizar Soportista" href="../conexionDB/actualizar_soportista.php?id_usuario=<?php echo $usuario["id_usuario"]; ?>">
                 <a href="../views/soportistas.php">Ver Soportistas</a>
             </div>
+            <?php  endforeach; ?>
         </form>
 
         <!-- End formulario agregar clientes -->

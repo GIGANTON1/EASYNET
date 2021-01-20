@@ -3,7 +3,7 @@ require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 if (!$iniciado) {
-    header("Location: ../forms/login.html");
+    header("Location: ../forms/login_form.php");
     exit();
 }
 $usuario = $pdo->query("SELECT * FROM usuarios");
@@ -112,12 +112,14 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
     </div>
     </div>
     <div>
-    <select  placeholder="Soportista" name="usuario">
-                  <?php foreach ($usuario as $usuarios):?>
-                      <option value="<?php echo $usuarios['id_usuario']?>"><?php echo $usuarios['usuario']?></option>
-                  <?php  endforeach; ?>
-              </select>
-</div>
+    <div>
+        <label class="mdb-main-label">Soportista</label>
+        <select class="mdb-select md-form" name="usuario">
+            <?php foreach ($usuario as $usuarios):?>
+                <option value="<?php echo $usuarios['id_usuario']?>"><?php echo $usuarios['usuario']?></option>
+            <?php  endforeach; ?>
+        </select>
+    </div>
     <div class="botones">
       <input type="submit" value="Agregar Cliente" href="clientes.php">
         <a href="../views/clientes.php">Ver Clientes</a>

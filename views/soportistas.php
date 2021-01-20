@@ -3,11 +3,12 @@ require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 if (!$iniciado) {
-    header("Location: ../forms/login.html");
+    header("Location: ../forms/login_form.php");
     exit();
 }
-$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos FROM easy_net.usuarios 
-    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos;");
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos, estado.estado FROM easy_net.usuarios 
+    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
+    inner join easy_net.estado on easy_net.usuarios.estado_id = easy_net.estado.id_estado;");
 ?>
 
 <!DOCTYPE html>
@@ -102,6 +103,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                         <tr>
                             <th class="text-center">NOMBRE SOPORTISTA</th>
                             <th class="text-center">CARGO EN LA EMPRESA</th>
+                            <th class="text-center">ESTADO</th>
                             <th class="text-center">BORRAR</th>
                             <th class="text-center">EDITAR</th>
                         </tr>
@@ -111,6 +113,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                             <tr>
                                 <th class="pt-3-half" contenteditable="true"><?php echo $usuario['usuario']?></th>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $usuario['cargos']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $usuario['estado']?></td>
                                 <td>
               <span class="table-remove"><button type="button" role="link" onclick="location.href='../conexionDB/eliminar_soportista.php?id_usuario=<?php echo $usuario['id_usuario']?> '; "
                                                  class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>

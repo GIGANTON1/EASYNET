@@ -3,23 +3,25 @@ require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 if (!$iniciado) {
-    header("Location: ../forms/login.html");
+    header("Location: ../forms/login_form.php");
     exit();
 }
 $cargo = $pdo->query("SELECT * FROM cargos");
+$estado = $pdo->query("SELECT * FROM estado");
 if (!empty($_POST)) {
     $usuario = $_POST['nombre'];
     $contraseña = $_POST['contraseña'];
     $cargos = $_POST['cargos'];
+    $estados = $_POST['estados'];
 
-    if (empty($usuario) || empty($contraseña) || empty($cargos)) {
+    if (empty($usuario) || empty($contraseña) || empty($cargos) || empty($estados)) {
         $mensajes[] = "Todos los campos son obligatorios";
     }
     $ingreso = 0;
     if (empty($mensajes)) {
         $ingreso = $pdo->exec("INSERT INTO usuarios"
-            . " (usuario, contra, cargos_id )"
-            . " VALUES ('$usuario', '$contraseña', '$cargos')");
+            . " (usuario, contra, cargos_id, estado_id )"
+            . " VALUES ('$usuario', '$contraseña', '$cargos', '$estados')");
     }
     if ($ingreso >= 1) {
         header("Location: ../views/soportistas.php");
@@ -113,17 +115,37 @@ if (!empty($_POST)) {
                     </div>
                 </div>
             </div>
-            <div>
+            <!--<div>
                 <select  placeholder="Soportista" name="cargos">
+
+                </select>
+                <div>
+                    <select  placeholder="Soportista" name="cargos">
+
+                    </select>
+                </div>
+            </div>-->
+            <div>
+                <label class="mdb-main-label">Cargo</label<>
+            <select class="mdb-select md-form" name="cargos">
                     <?php foreach ($cargo as $cargos):?>
                         <option value="<?php echo $cargos['id_cargos']?>"><?php echo $cargos['cargos']?></option>
                     <?php  endforeach; ?>
-                </select>
+
+            </select>
+                <label class="mdb-main-label">Estado</label>
+            <select class="mdb-select md-form" name="estados">
+                <?php foreach ($estado as $estados):?>
+                    <option value="<?php echo $estados['id_estado']?>"><?php echo $estados['estado']?></option>
+                <?php  endforeach; ?>
+            </select>
             </div>
+
             <div class="botones">
                 <input type="submit" value="Agregar Soportista" href="soportistas.php">
                 <a href="../views/soportistas.php">Ver Soportistas</a>
             </div>
+
         </form>
 
         <!-- End formulario agregar clientes -->
@@ -147,6 +169,14 @@ if (!empty($_POST)) {
                     </div>
 
 </section>
+<script>
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+    });
+
+    Outline select
+</script>
 <!-- End Intro Section -->
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
