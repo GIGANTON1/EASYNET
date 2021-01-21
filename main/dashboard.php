@@ -13,17 +13,15 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
-$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos, estado.estado FROM easy_net.usuarios 
-    inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
-    inner join easy_net.estado on easy_net.usuarios.estado_id = easy_net.estado.id_estado WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>EasyNet - Actualizar Agente Soporte Técnico</title>
+    <title>EasyNet - Distribuidor VIP</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
@@ -41,7 +39,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
     <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/agregar_soportista.css" rel="stylesheet">
+    <link href="../assets/css/style1.css" rel="stylesheet">
 
 </head>
 
@@ -59,7 +57,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
 
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li><a href="../main/MainIn.php">Inicio</a></li>
+                <li class="menu-active"><a href="#intro">Inicio</a></li>
                 <li class="menu-has-children"><a href="">Bítacoras</a>
                     <ul>
                         <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
@@ -72,6 +70,13 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
                         <li><a href="../views/clientes.php">Clientes</a></li>
                         <li><a href="../forms/agregar_clientes.php">Nuevo Cliente</a></li>
                         <li><a href="../forms/actualizar_cliente.php">Actualizar Cliente</a></li>
+                    </ul>
+                </li>
+                <li class="menu-has-children"><a href="">Soportistas</a>
+                    <ul>
+                        <li><a href="../views/soportistas.php">Soportistas</a></li>
+                        <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
+                        <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
                     </ul>
                 </li>
                 <i class="ion-android-person" style="color: white"></i>
@@ -90,79 +95,20 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
 <section id="intro">
 
     <div class="intro-text">
-        <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
-        <h2>ACTUALIZAR SOPORTISTA</h2>
-        <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
-
-        <!-- formulario agregar clientes -->
-
-        <form class="box" action="" method="post" >
-            <!-- primera columna -->
-            <div class="row">
-                <div class="col-sm">
-                    <?php foreach ($resultados as $usuario):?>
-                    <div id="dato1" >
-                        <label>Nombre de Soportista</label>
-                        <br>
-                        <input type="text" name="nombre" placeholder="Nombre del Soportista" value="<?php echo $usuario['usuario']?>">
-                    </div>
-
-                </div>
-                <!-- segunda columna -->
-                <div class="col-sm">
-
-                    <div id="dato2" >
-                        <label>Contraseña</label>
-                        <br>
-                        <input type="password" name="contraseña" placeholder="Contraseña del soportista" value="<?php echo $usuario['contra']?>">
-                    </div>
-                </div>
-
-            </div>
-            <div>
-                <label class="mdb-main-label">Cargo</label<>
-                <select class="mdb-select md-form" name="cargos">
-
-                        <option value="<?php echo $usuario['id_cargos']?>"><?php echo $usuario['cargos']?></option>
-
-
-                </select>
-                <label class="mdb-main-label">Estado</label>
-                <select class="mdb-select md-form" name="estados">
-
-                        <option value="<?php echo $usuario['id_estado']?>"><?php echo $usuario['estado']?></option>
-
-                </select>
-            </div>
-            <div class="botones">
-                <input type="submit" value="Actualizar Soportista" href="../conexionDB/actualizar_soportista.php?id_usuario=<?php echo $usuario["id_usuario"]; ?>">
-                <a href="../views/soportistas.php">Ver Soportistas</a>
-            </div>
-            <?php  endforeach; ?>
-        </form>
-
-        <!-- End formulario agregar clientes -->
+        <a href="#intro"><img src="../imgs/logo_nuevo.png" alt=""></a>
 
         <div class="footer">
             <div class="copyright">
-                <div class="footer">
-                    <div class="copyright">
-                        <div class="footer">
-                            <div class="copyright">
-                                <div class="footer">
-                                    <div class="copyright">
-                                        &copy; Copyright <strong>EasyNet</strong>. Todos Derechos Reservados 2020
-                                    </div>
-                                    <div class="credits">
-                                        Somos <strong>Equipo EasyNet</strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                &copy; Copyright <strong>EasyNet</strong>. Todos Derechos Reservados 2020
+            </div>
+            <div class="credits">
+                Somos <strong>Equipo EasyNet</strong>
+            </div>
+        </div>
+    </div>
 
-</section>
-<!-- End Intro Section -->
+
+</section><!-- End Intro Section -->
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

@@ -328,6 +328,24 @@ background: #2ecc71;
 .nav-menu ul ul {
   margin: 0;
 }
+/* Nav Menu Arrows */
+.sf-arrows .sf-with-ul {
+  padding-right: 30px;
+}
+
+.sf-arrows .sf-with-ul:after {
+  content: "\f107";
+  position: absolute;
+  right: 15px;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.sf-arrows ul .sf-with-ul:after {
+  content: "\f105";
+}
+
 
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
@@ -511,29 +529,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 .box #dato1 input[type = "text"]:focus,.box input[type = "email"]:focus{
   border-color: #2ecc71;
-}
-
-/* .box input[type = "submit"]{
-  border:0;
-  background: none;
-  display: block;
-  margin: 50px;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 14px 40px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-  font-size: 20px;
-}
-.box input[type = "submit"]:hover{
-  background: #2ecc71;
-} */
-.box #dato1{
-  /* float: left; */
-  margin: 0;
 }
 
 /* End Formulario Cliente */

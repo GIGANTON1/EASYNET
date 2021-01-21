@@ -2,13 +2,20 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($usua as $usu):
+    $usu['cargos_id'];
+endforeach;
+if ($usu['cargos_id'] != 1) {
+    header("Location: ../main/MainIn.php");
+}
 if (!$iniciado) {
     $usuario = $_SESSION['iniciado'];
     header("Location: ../forms/login_form.php");
     exit();
 }
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
- usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario where usuario = '" . $_SESSION['iniciado'] . "'");
+ usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
 
 ?>
 
@@ -68,10 +75,18 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="../main/MainIn.php">Inicio</a></li>
-            <li class="menu-has-children"><a href="">Bitacora</a>
+            <li class="menu-has-children"><a href="">Bítacoras</a>
                 <ul>
-                    <li><a href="../bitacora/main_bitacora.php  ">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                    <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
+                </ul>
+            </li>
+            <li class="menu-has-children"><a href="">Soportistas</a>
+                <ul>
+                    <li><a href="../views/soportistas.php">Soportistas</a></li>
+                    <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
+                    <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
                 </ul>
             </li>
             <i class="ion-android-person" style="color: white"></i>
@@ -102,7 +117,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
                                placeholder="Busqueda de clientes...">
                         <thead>
                         <tr>
-                            <th class="text-center">R.T.N. EMPRESA</th>
+                            <th class="text-center">R.T.N.</th>
                             <th class="text-center">EMPRESA</th>
                             <th class="text-center">DIRECCION</th>
                             <th class="text-center">CORREO</th>

@@ -1,13 +1,20 @@
 <?php
 require_once "../conexionDB/conexion.php";
 session_start();
+$resultados = $pdo->query("SELECT id_usuario FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+
 if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
+
+$resultados = $pdo->query("SELECT id_usuario FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
 $clientes = $pdo->query("SELECT * FROM cliente");
 $soportes    = $pdo->query("SELECT * FROM tipo_soporte");
+foreach ($resultados as $cliente):
+      $cliente['id_usuario'];
+endforeach;
 if (!empty($_POST)) {
     $nombre = $_POST['cliente'];
     $contacto = $_POST['contacto_soporte'];
@@ -15,21 +22,25 @@ if (!empty($_POST)) {
     $solucion= $_POST['solucion'];
     $soporte = $_POST['soporte'];
     $fecha = $_POST['fecha'];
+    $id = $cliente['id_usuario'];
 
     if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte)|| empty($fecha)) {
         $mensajes[] = "Todos los campos son obligatorios";
     }
     $ingreso = 0;
+
     if (empty($mensajes)) {
         $ingreso = $pdo->exec("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha)"
-            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha')");
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id)"
+            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id')");
     }
+
     if ($ingreso >= 1) {
         $mensajes[] = "Bitacora del cliente " . $nombre .  " agregado exitosamente";
     } else {
         $mensajes[] = "Hubo un error al crear su usuario.";
     }
+
 }
 ?>
 <!DOCTYPE html>
@@ -76,14 +87,15 @@ if (!empty($_POST)) {
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
-          <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
-          <li class="menu-has-children"><a href="">Clientes</a>
-                      <ul>
-                        <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
-                        <li><a href="../views/clientes.php">Ver Clientes</a></li>
-                      </ul>
-          </li>
-          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+          <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
+            </li>
+            <i class="ion-android-person" style="color: white"></i>
+            <li class="menu-has-children"><a href="">Perfil</a>
+                <ul>
+                    <li><?php echo $_SESSION['iniciado']?></li>
+                    <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -102,6 +114,7 @@ if (!empty($_POST)) {
       </div>
       <div class="intro-text">
 <!----Form Bitacora---->
+          <div>
 <div class="form" >
 <form action="" method="post">
   <div class="form-row">
@@ -123,7 +136,6 @@ if (!empty($_POST)) {
               <br>
               <input type="date" name="fecha"  placeholder="Hora/Fecha del Soporte">
               <br>
-
           </div>
   </div>
   <div class="form-row">
@@ -144,13 +156,13 @@ if (!empty($_POST)) {
               <?php  endforeach; ?>
           </select>
       </div>
-      <!--<input type="submit" value="Agregar BItacora" href="">-->
+  </div>
       <div class="botones">
           <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
       </div>
-  </div>
-
 </form>
+</div>
+
 </div>
 <!----End Form Bitacora---->
   </section>

@@ -2,10 +2,18 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+$resultados = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($resultados as $usu):
+    $usu['cargos_id'];
+endforeach;
+if ($usu['cargos_id'] == 1) {
+    header("Location: ../main/dashboard.php");
+}
 if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,14 +59,12 @@ if (!$iniciado) {
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Inicio</a></li>
-          <li class="menu-has-children"><a href="">Bítacora/Soporte Técnico</a>
-                          <ul>
-                            <li><a href="../bitacora/main_bitacora.php">Mi Bitacora</a></li>
-                            <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
-                            <li><a href="../views/clientes.php">Clientes</a></li>
-                            <li><a href="../forms/agregar_clientes.php">Agregar Nuevo Cliente</a></li>
-                          </ul>
-                    </li>
+            <li class="menu-has-children"><a href="">Bítacoras</a>
+                <ul>
+                    <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                </ul>
+            </li>
             <i class="ion-android-person" style="color: white"></i>
             <li class="menu-has-children"><a href="">Perfil</a>
                 <ul>

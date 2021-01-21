@@ -146,7 +146,7 @@ h1, h2, h3, h4, h5, h6 {
 #intro .intro-text {
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 0;
   right: 0;
   height: calc(50% - 60px);
   display: flex;
@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 #intro .intro-text{
-  height: 800px;
+  height: 650px;
 }
 #intro h2 {
   margin: 10px 0 0 0;
@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
   border:0;
   background: none;
   display: block;
-  margin: 10px auto;
+  margin: auto;
   text-align: center;
   border: 2px solid #2ecc71;
   padding: 8px 50px;

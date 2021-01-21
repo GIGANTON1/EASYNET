@@ -2,15 +2,23 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($usua as $usu):
+    $usu['cargos_id'];
+endforeach;
+if ($usu['cargos_id'] != 1) {
+    header("Location: ../main/MainIn.php");
+}
 if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
 $resultados = $pdo->query("SELECT 
 bitacora.nombre_cliente, bitacora.contacto_soporte,
-bitacora.motivo, bitacora.solucion, bitacora.fecha, tipo_soporte.soporte
+bitacora.motivo, bitacora.solucion, bitacora.fecha, tipo_soporte.soporte, usuarios.usuario
 FROM easy_net.bitacora
-inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte");
+inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
+inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario");
 
 ?>
 
@@ -67,10 +75,12 @@ inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
+          <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
           <!--<li><a href="#">Mi Bitacora</a></li>-->
           <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
-
+              <ul>
+                  <li><a href="../bitacora/miBitacora.php">Mi Bitácora</a></li>
+              </ul>
           </li>
           <li class="menu-has-children"><a href="">Clientes</a>
                       <ul>
@@ -78,8 +88,13 @@ inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
                       </ul>
           </li>
-          <li><a href="../forms/login.php">Cerrar Sesión</a></li>
-        </ul>
+            <i class="ion-android-person" style="color: white"></i>
+            <li class="menu-has-children"><a href="">Perfil</a>
+                <ul>
+                    <li><?php echo $_SESSION['iniciado']?></li>
+                    <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>        </ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- End Header -->
@@ -92,7 +107,7 @@ inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net
 
 
     <div class="intro-text">
-        <h2>BITACORA DE SOPORTE</h2>
+        <h2>BITACORAS DE SOPORTE GENERAL</h2>
         <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
@@ -102,12 +117,13 @@ inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net
                                placeholder="Busqueda de bitacora">
                         <thead>
                         <tr>
-                            <th class="text-center">NOMBRE CLIENTE</th>
-                            <th class="text-center">CONTACTO DE SOPORTE</th>
+                            <th class="text-center">CLIENTE</th>
+                            <th class="text-center">CONTACTO</th>
                             <th class="text-center">MOTIVO</th>
                             <th class="text-center">SOLUCION</th>
-                            <th class="text-center">TIPO SOPORTE</th>
+                            <th class="text-center">SOPORTE</th>
                             <th class="text-center">FECHA</th>
+                            <th class="text-center">SOPORTISTA</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -119,6 +135,7 @@ inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['solucion']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['fecha']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['usuario']?></td>
                             </tr>
                         <?php endforeach; ?>
 

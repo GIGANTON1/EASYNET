@@ -2,6 +2,13 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+$resultados = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($resultados as $usu):
+    $usu['cargos_id'];
+endforeach;
+if ($usu['cargos_id'] != 1) {
+    header("Location: ../main/MainIn.php");
+}
 if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
@@ -51,13 +58,27 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="../main/MainIn.php">Inicio</a></li>
-          <li class="menu-has-children"><a href="">Bitacora</a>
+            <li class="menu-has-children"><a href="">Bítacoras</a>
                 <ul>
-                  <li><a href="#">Mi Bitacora</a></li>
-                  <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                    <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                    <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
                 </ul>
-          </li>
-          <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+            </li>
+            <li class="menu-has-children"><a href="">Soportistas</a>
+                <ul>
+                    <li><a href="../views/soportistas.php">Soportistas</a></li>
+                    <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
+                    <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
+                </ul>
+            </li>
+            <i class="ion-android-person" style="color: white"></i>
+            <li class="menu-has-children"><a href="">Perfil</a>
+                <ul>
+                    <li><?php echo $_SESSION['iniciado']?></li>
+                    <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
