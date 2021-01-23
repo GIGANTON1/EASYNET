@@ -24,11 +24,11 @@ function Header()
     /* Logo*/
     $this->Image('../imgs/logo_nuevo.png',10,6,100);
     /* Arial bold 15 */
-    $this->SetFont('Arial','B',22);
+    $this->SetFont('Arial','B',18);
     /*Movernos a la derecha*/
     $this->Cell(130);
     /* titulo del pdf*/
-    $this->Cell(25,30,'Lista de Soportistas',0,0,'C');
+    $this->Cell(25,30,'Lista de Soportistas EasyNet',0,0,'C');
     $ahora = date("d-m-Y H:i");
     date_default_timezone_set("America/Mexico_City");
     $this->SetFont('Arial','B',12);
@@ -36,7 +36,7 @@ function Header()
     $this->SetFont('Arial','B',12);
     $this->Cell(-66,45,'Fecha y Hora:',0,0,'C');
     //Altura de la tabla, no lo toques
-    $this->Ln(40);
+    $this->Ln(38);
     $this->SetFont('Arial','B',12);
   $this->Cell(60, 7, 'Nombre del Soportista', 1, 0, 'L', 0);
   $this->Cell(65, 7, 'Cargo', 1, 0, 'C', 0);

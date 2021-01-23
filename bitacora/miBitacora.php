@@ -72,7 +72,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                 <!--<li><a href="#">Mi Bitacora</a></li>-->
                 <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
                     <ul>
-                        <li><a href="../bitacora/miBitacora.php">Mi Bitácora</a></li>
+                        <li><a href="../bitacora/bitacora.php">Nueva Bitácora</a></li>
                     </ul>
                 </li>
                 <li class="menu-has-children"><a href="">Clientes</a>
@@ -146,6 +146,9 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="botones">
+            <a href="../fpdf/mibitacora.php">Guardar en PDF</a>
         </div>
         <div class="footer">
 

@@ -153,6 +153,11 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                 </div>
             </div>
         </div>
+
+        <div class="botones">
+            <a href="../fpdf/main_bitacora.php">Guardar en PDF</a>
+        </div>
+
       <div class="footer">
 
         <div class="copyright">
