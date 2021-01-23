@@ -140,9 +140,11 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                                 <td>
                                     <?php if ($bitacoras['estado_soporte_id']==1)
                                     {
-                                        echo '<button type="button" class="btn btn-success"><i class="ion-android-checkbox" ></i></button>';
+                                        echo '<button type="button" class="btn btn-success" onclick="myFunction()">
+                                        <i class="ion-android-checkbox"></i></button>';
                                     }elseif ($bitacoras['estado_soporte_id']==2){
-                                        echo '<button type="button" class="btn btn-warning"><i class="ion-alert-circled" ></i></button>';
+                                        echo '<button type="button" class="btn btn-warning" onclick="myFunction()">
+                                        <i class="ion-alert-circled" ></i></button>';
                                     }
                                     ?>
                                 </td>
@@ -176,6 +178,11 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
               });
           });
       });
+
+      function myFunction() {
+          var myWindow = window.open("../forms/actualizar_soporte.php", "", "width=600,height=600");
+      }
+
   </script>
   <!-- End Intro Section -->
 <!--  <div class="footer">

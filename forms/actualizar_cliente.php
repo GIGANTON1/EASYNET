@@ -18,8 +18,27 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario WHERE cliente.id_cliente = '" . $_GET["id_cliente"] . "'");
 
 
+if (isset($_GET['id_cliente '])) {
+    $id = $_POST['id_cliente'];
+    $rtn = $_POST['rtn'];
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
+    $correo = $_POST['correo'];
+    $telefono = $_POST['telefono'];
+    $contacto = $_POST['contacto'];
+    $usuario = $_POST['usuario'];
 
 
+    $act_cliente = $pdo->query("UPDATE easy_net.cliente SET  
+    cliente.nombre_cliente='nombre', 
+    cliente.rtn= 'rtn', 
+    cliente.direccion='direccion', 
+    cliente.contacto='contacto', 
+    cliente.telefono='telefono', 
+    cliente.correo='correo', 
+    cliente.usuarios_id='usuario' 
+WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
+}
 
 ?>
 <!DOCTYPE html>
@@ -150,7 +169,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
             </div>
 
             <div class="botones">
-                <input type="submit" value="Actualizar Cliente" href="../conexionDB/actualizar_cliente.php?id_cliente=<?php echo $cliente["id_cliente"]; ?>">
+                <input type="submit" value="Actualizar Cliente" href="../forms/actualizar_cliente.php?id_cliente=<?php echo $cliente["id_cliente"]; ?>">
                 <a href="../views/clientes.php">Ver Clientes</a>
             </div>
             <?php endforeach; ?>
