@@ -3,6 +3,7 @@ require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 $resultados = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+$errores = array();
 foreach ($resultados as $usu):
     $usu['cargos_id'];
 endforeach;
@@ -103,7 +104,7 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
     <div id="dato1" >
       <label>Empresa</label>
       <br>
-      <input type="text" name="nombre" placeholder="Nombre del Cliente">
+      <input placeholder="Nombre del Cliente"type="text" name="nombre" min="4" max="45"
       <br>
       <label>R.T.N</label>
       <br>

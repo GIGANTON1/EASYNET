@@ -15,10 +15,10 @@ if (!$iniciado) {
 }
 $resultados = $pdo->query("SELECT 
 bitacora.nombre_cliente, bitacora.contacto_soporte,
-bitacora.motivo, bitacora.solucion, bitacora.fecha, tipo_soporte.soporte, usuarios.usuario
+bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario
 FROM easy_net.bitacora
 inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
-inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario");
+inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario ORDER BY FECHA DESC");
 
 ?>
 
@@ -120,10 +120,11 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                             <th class="text-center">CLIENTE</th>
                             <th class="text-center">CONTACTO</th>
                             <th class="text-center">MOTIVO</th>
-                            <th class="text-center">SOLUCION</th>
+                            <th class="text-center">SOLUCION/COMENTARIO</th>
                             <th class="text-center">SOPORTE</th>
                             <th class="text-center">FECHA</th>
                             <th class="text-center">SOPORTISTA</th>
+                            <th class="text-center">ESTADO</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -136,9 +137,17 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['fecha']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['usuario']?></td>
+                                <td>
+                                    <?php if ($bitacoras['estado_soporte_id']==1)
+                                    {
+                                        echo '<button type="button" class="btn btn-success"><i class="ion-android-checkbox" ></i></button>';
+                                    }elseif ($bitacoras['estado_soporte_id']==2){
+                                        echo '<button type="button" class="btn btn-warning"><i class="ion-alert-circled" ></i></button>';
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
-
                         </tbody>
                     </table>
                 </div>

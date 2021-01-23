@@ -20,8 +20,7 @@ if ($resultado) {
     exit();
 }else
     {
-        header("Location: ../views/admin.php");
-
+                header("Location: ../views/admin.php");
 }
 
 

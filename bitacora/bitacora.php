@@ -11,7 +11,8 @@ if (!$iniciado) {
 
 $resultados = $pdo->query("SELECT id_usuario FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
 $clientes = $pdo->query("SELECT * FROM cliente");
-$soportes    = $pdo->query("SELECT * FROM tipo_soporte");
+$soportes = $pdo->query("SELECT * FROM tipo_soporte");
+$estado = $pdo->query("SELECT * FROM estado_soporte");
 foreach ($resultados as $cliente):
       $cliente['id_usuario'];
 endforeach;
@@ -23,16 +24,17 @@ if (!empty($_POST)) {
     $soporte = $_POST['soporte'];
     $fecha = $_POST['fecha'];
     $id = $cliente['id_usuario'];
+    $estado = $_POST['estado'];
 
-    if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte)|| empty($fecha)) {
+    if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte)|| empty($fecha)|| empty($estado)) {
         $mensajes[] = "Todos los campos son obligatorios";
     }
     $ingreso = 0;
 
     if (empty($mensajes)) {
         $ingreso = $pdo->exec("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id)"
-            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id')");
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id)"
+            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
     }
 
     if ($ingreso >= 1) {
@@ -150,16 +152,28 @@ if (!empty($_POST)) {
           <br>
           <label>Tipo de Soporte</label>
           <br>
+          <div>
           <select  placeholder="Tipo de Soporte" name="soporte">
               <?php foreach ($soportes as $soport):?>
                   <option value="<?php echo $soport['id_soporte']?>"><?php echo $soport['soporte']?></option>
               <?php  endforeach; ?>
           </select>
+          <br>
+          <label>Estado del Soporte</label>
+          <br>
+          <select  placeholder="Estado del Soporte" name="estado">
+              <?php foreach ($estado as $estados):?>
+                  <option value="<?php echo $estados['id_estado_soporte']?>"><?php echo $estados['estado_soporte']?></option>
+              <?php  endforeach; ?>
+          </select>
+          </div>
+          <div class="botones">
+              <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
+          </div>
       </div>
+
   </div>
-      <div class="botones">
-          <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
-      </div>
+
 </form>
 </div>
 

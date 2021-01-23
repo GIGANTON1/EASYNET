@@ -8,10 +8,10 @@ if (!$iniciado) {
 }
 $resultados = $pdo->query("SELECT 
 bitacora.nombre_cliente, bitacora.contacto_soporte,
-bitacora.motivo, bitacora.solucion, bitacora.fecha, tipo_soporte.soporte, usuarios.usuario
+bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario
 FROM easy_net.bitacora
 inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
-inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario where usuario = '" . $_SESSION['iniciado'] . "'");
+inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario where usuario = '" . $_SESSION['iniciado'] . "' order by fecha DESC");
 
 ?>
 
@@ -70,8 +70,16 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
             <ul class="nav-menu">
                 <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
                 <!--<li><a href="#">Mi Bitacora</a></li>-->
-                <li class="menu-has-children"><a href="bitacora.php">Nueva Bitácora</a>
-
+                <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
+                    <ul>
+                        <li><a href="../bitacora/miBitacora.php">Mi Bitácora</a></li>
+                    </ul>
+                </li>
+                <li class="menu-has-children"><a href="">Clientes</a>
+                    <ul>
+                        <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
+                        <li><a href="../views/clientes.php">Ver Clientes</a></li>
+                    </ul>
                 </li>
                 <i class="ion-android-person" style="color: white"></i>
                 <li class="menu-has-children"><a href="">Perfil</a>
@@ -79,7 +87,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                         <li><?php echo $_SESSION['iniciado']?></li>
                         <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
                     </ul>
-                </li>        </ul>
+                </li>     </ul>
         </nav><!-- #nav-menu-container -->
     </div>
 </header><!-- End Header -->
@@ -105,10 +113,11 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                             <th class="text-center">CLIENTE</th>
                             <th class="text-center">CONTACTO</th>
                             <th class="text-center">MOTIVO</th>
-                            <th class="text-center">SOLUCION</th>
+                            <th class="text-center">SOLUCION/COMENTARIO</th>
                             <th class="text-center">SOPORTE</th>
                             <th class="text-center">FECHA</th>
                             <th class="text-center">SOPORTISTA</th>
+                            <th class="text-center">ESTADO</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
@@ -121,6 +130,15 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['fecha']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['usuario']?></td>
+                                <td>
+                                    <?php if ($bitacoras['estado_soporte_id']==1)
+                                    {
+                                        echo '<button type="button" class="btn btn-success"><i class="ion-android-checkbox" ></i></button>';
+                                    }elseif ($bitacoras['estado_soporte_id']==2){
+                                        echo '<button type="button" class="btn btn-warning"><i class="ion-alert-circled" ></i></button>';
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
 

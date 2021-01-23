@@ -13,9 +13,9 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
-$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos, estado.estado FROM easy_net.usuarios 
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos, estado_usuario.estado FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
-    inner join easy_net.estado on easy_net.usuarios.estado_id = easy_net.estado.id_estado;");
+    inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado;");
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +147,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
 
         <div class="botones">
             <a href="../forms/agregar_soportista.php">Agregar Nuevo Soportista</a>
-            <a href="../fpdf/lista_clientes.php">Guardar en PDF</a>
+            <a href="../fpdf/lista_soportistas.php">Guardar en PDF</a>
         </div>
         <!-- END TABLA DE CLIENTES -->
 

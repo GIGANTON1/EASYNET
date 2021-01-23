@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   /*background-size: cover;
   position: fixed;
   background-attachment: fixed;
-  overflow: scroll;*/
+ /* overflow: scroll;*/
 }
 /* #intro img {
   padding: 0;

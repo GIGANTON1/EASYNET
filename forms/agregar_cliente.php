@@ -23,6 +23,8 @@ if (!empty($_POST)) {
         exit();
     } else {
         $mensajes[] = "Error al ingresar el Cliente";
+        echo $mensajes ="HOla";
+
     }
 }
  ?>

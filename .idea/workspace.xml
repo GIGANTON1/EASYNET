@@ -4,18 +4,18 @@
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/bitacora.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bitacora_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora_form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/cliente.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/cliente.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/actualizar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/miBitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/miBitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/actualizar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soportista.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/agregar_clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/agregar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_soportista.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/MainIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fpdf/lista_clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/fpdf/lista_clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/soporte.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/soporte.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/soportistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/soportistas.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +97,8 @@
       <workItem from="1610479191707" duration="62453000" />
       <workItem from="1610987204567" duration="16368000" />
       <workItem from="1611028509585" duration="7765000" />
-      <workItem from="1611072997879" duration="47637000" />
+      <workItem from="1611072997879" duration="47919000" />
+      <workItem from="1611376963590" duration="15054000" />
     </task>
     <servers />
   </component>
@@ -113,6 +114,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610770804188" />
+    <state x="414" y="190" width="527" height="413" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611386197218">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="414" y="190" width="527" height="413" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1611386197218" />
     <state x="100" y="127" width="1166" height="541" key="DiffContextDialog" timestamp="1611029455173">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -125,10 +130,6 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="503" y="319" width="329" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1611190159581" />
-    <state x="185" y="32" key="SettingsEditor" timestamp="1602692867912">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="185" y="32" key="SettingsEditor/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1602692867912" />
     <state width="82" height="523" key="SqlResolveConfigurable" timestamp="1603400761934">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

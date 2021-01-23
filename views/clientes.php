@@ -15,7 +15,7 @@ if (!$iniciado) {
     exit();
 }
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
- usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario");
+ usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario ORDER BY nombre_cliente ASC");
 
 ?>
 
@@ -108,7 +108,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
       <h2>CLIENTES EASYNET</h2>
       <!-- TABLA DE CLIENTES -->
 
-        <div class="w-75 p-3"  style="background-color: #eeeeee">
+        <div class="w-100 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
 

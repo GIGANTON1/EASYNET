@@ -13,9 +13,9 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
-$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos, estado.estado FROM easy_net.usuarios 
+$resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos, estado_usuario.estado FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
-    inner join easy_net.estado on easy_net.usuarios.estado_id = easy_net.estado.id_estado WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
+    inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
 ?>
 <!DOCTYPE html>
 <html lang="en">
