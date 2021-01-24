@@ -33,7 +33,7 @@ if (!empty($_POST)) {
 
     if (empty($mensajes)) {
         $ingreso = $pdo->exec("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id)"
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id )"
             . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
     }
 
@@ -69,8 +69,29 @@ if (!empty($_POST)) {
   <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+
+    <!-- MdBootstrap jquery -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+    <!-- mdbootstrap -->
+    <link rel="stylesheet" href="../https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/style.css">
+
+    <!-- Template Main CSS File -->
   <link href="../assets/css/bitacora_form.css" rel="stylesheet">
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 </head>
 
@@ -107,78 +128,66 @@ if (!empty($_POST)) {
   <section id="intro">
       <div class="intro-text">
         <h2>NUEVA BITACORA EASYNET</h2>
-         <div class="footer">
-                    <div class="copyright">
-                      &copy; Copyright <strong>EasyNet</strong>. Todos los derechos Reservados 2020
-                    </div>
-                      Somos <strong>Equipo EasyNet</strong>
-        </div>
+          <div class="form" >
+              <form action="" method="post">
+                  <div class="form-row">
+                      <div class="col-sm">
+                          <div id="dato1" >
+                              <label>Cliente Atendido</label>
+                              <select  placeholder="Cliente Atendido" name="cliente" class="form-select" aria-label="Default select example">
+                                  <?php foreach ($clientes as $cliente):?>
+                                      <option><?php echo $cliente['nombre_cliente']?></option>
+                                  <?php  endforeach; ?>
+                              </select>
+                              <!--<input type="text" name="nombre" placeholder="Nombre del Cliente">--->
+                              <br>
+                              <label>Problema/Motivo de Soporte</label>
+                              <br>
+                              <input type="text" name="motivo"  placeholder="Problema/Motivo de la llamada">
+                              <br>
+
+                              <label>Contacto</label>
+                              <br>
+                              <input type="text" name="contacto_soporte" placeholder="Contacto de la empresa que llamo para solicitar el soporte">
+                              <br>
+                              <label>Solución/Soporte Realizado</label>
+                              <br>
+                              <input type="text" name="solucion"  placeholder="Solución o Soporte realizado al cliente">
+                              <br>
+                              <div  class="d-flex flex-row bd-highlight mb-3 justify-content-center">
+                                  <label>Tipo de Soporte</label>
+                                  <select  placeholder="Tipo de Soporte" name="soporte" >
+                                      <?php foreach ($soportes as $soport):?>
+                                          <option value="<?php echo $soport['id_soporte']?>"><?php echo $soport['soporte']?></option>
+                                      <?php  endforeach; ?>
+                                  </select>
+                                  <br>
+                                  <label>Estado del Soporte</label>
+                                  <br>
+                                  <select  placeholder="Estado del Soporte" name="estado">
+                                      <?php foreach ($estado as $estados):?>
+                                          <option value="<?php echo $estados['id_estado_soporte']?>"><?php echo $estados['estado_soporte']?></option>
+                                      <?php  endforeach; ?>
+                                  </select>
+                              </div>
+                              <label>Fecha del Soporte</label>
+                              <br>
+                              <input type="date" name="fecha"  placeholder="Hora/Fecha del Soporte">
+                              <br>
+                              <div class="botones">
+                                  <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
+                              </div>
+              </form>
       </div>
-      <div class="intro-text">
 <!----Form Bitacora---->
-          <div>
-<div class="form" >
-<form action="" method="post">
-  <div class="form-row">
-      <div class="col-sm">
-          <div id="dato1" >
-              <label>Cliente Atendido</label>
-              <select  placeholder="Cliente Atendido" name="cliente">
-                  <?php foreach ($clientes as $cliente):?>
-                      <option><?php echo $cliente['nombre_cliente']?></option>
-                  <?php  endforeach; ?>
-              </select>
-              <!--<input type="text" name="nombre" placeholder="Nombre del Cliente">--->
-              <br>
-              <label>Problema/Motivo de Soporte</label>
-              <br>
-              <input type="text" name="motivo"  placeholder="Problema/Motivo de la llamada">
-              <br>
-              <label>Fecha del Soporte</label>
-              <br>
-              <input type="date" name="fecha"  placeholder="Hora/Fecha del Soporte">
-              <br>
-          </div>
-  </div>
-  <div class="form-row">
-      <div id="dato2" >
-          <label>Contacto</label>
-          <br>
-          <input type="text" name="contacto_soporte" placeholder="Contacto de la empresa que llamo para solicitar el soporte">
-          <br>
-          <label>Solución/Soporte Realizado</label>
-          <br>
-          <input type="text" name="solucion"  placeholder="Solución o Soporte realizado al cliente">
-          <br>
-          <label>Tipo de Soporte</label>
-          <br>
-          <div>
-          <select  placeholder="Tipo de Soporte" name="soporte">
-              <?php foreach ($soportes as $soport):?>
-                  <option value="<?php echo $soport['id_soporte']?>"><?php echo $soport['soporte']?></option>
-              <?php  endforeach; ?>
-          </select>
-          <br>
-          <label>Estado del Soporte</label>
-          <br>
-          <select  placeholder="Estado del Soporte" name="estado">
-              <?php foreach ($estado as $estados):?>
-                  <option value="<?php echo $estados['id_estado_soporte']?>"><?php echo $estados['estado_soporte']?></option>
-              <?php  endforeach; ?>
-          </select>
-          </div>
-          <div class="botones">
-              <input type="submit" value="Guardar nueva Bitácora" href="clientes.php">
-          </div>
-      </div>
 
-  </div>
-
-</form>
-</div>
-
-</div>
 <!----End Form Bitacora---->
+      <div class="footer">
+          <div class="copyright">
+              &copy; Copyright <strong>EasyNet</strong>. Todos los derechos Reservados 2020
+          </div>
+          Somos <strong>Equipo EasyNet</strong>
+      </div>
   </section>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -195,6 +204,7 @@ if (!empty($_POST)) {
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+
 
 
 </body>
