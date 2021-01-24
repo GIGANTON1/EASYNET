@@ -13,13 +13,14 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
+$estado = $pdo->query("SELECT * FROM estado_soporte");
 $resultados = $pdo->query("SELECT 
 bitacora.nombre_cliente, bitacora.contacto_soporte,
 bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario, estado_soporte.estado_soporte, estado_soporte.id_estado_soporte
 FROM easy_net.bitacora
 inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
 inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario
-inner join estado_soporte on bitacora.estado_soporte_id = estado_soporte.id_estado_soporte 
+inner join estado_soporte on bitacora.estado_soporte_id = estado_soporte.id_estado_soporte WHERE estado_soporte_id = 2  
 order by FECHA DESC");
 ?>
 <!DOCTYPE html>
@@ -73,18 +74,7 @@ order by FECHA DESC");
             <h1><a href="#intro" class="scrollto">EasyNet</a></h1>
         </div>
 
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
-                <!--<li><a href="#">Mi Bitacora</a></li>-->
-                <i class="ion-android-person" style="color: white"></i>
-                <li class="menu-has-children"><a href="">Perfil</a>
-                    <ul>
-                        <li><?php echo $_SESSION['iniciado']?></li>
-                        <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
-                    </ul>
-                </li>        </ul>
-        </nav><!-- #nav-menu-container -->
+<!-- #nav-menu-container -->
     </div>
 </header><!-- End Header -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -100,66 +90,48 @@ order by FECHA DESC");
         <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
-
                     <table class="table table-bordered table-responsive-md table-striped text-center">
                         <input class="form-control mb-4" id="tableSearch" type="text"
-                               placeholder="Busqueda de bitacora">
+                               placeholder="Busqueda de clientes...">
                         <thead>
                         <tr>
-                            <th class="text-center">ESTADO </th>
-                            <th class="text-center">ESTADO ACTUAL</th>
+                            <th class="text-center">EMPRESA</th>
+                            <th class="text-center">MOTIVO</th>
+                            <th class="text-center">FECHA</th>
+                            <th class="text-center">ESTADO</th>
                             <th class="text-center">NUEVO ESTADO</th>
-
                         </tr>
                         </thead>
                         <tbody id="myTable">
-                        <?php foreach ($resultados as $bitacoras):?>
+                        <?php foreach ($resultados as $cliente):?>
+                            <?php foreach ($estado as $soporte):?>
                             <tr>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['nombre_cliente']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['motivo']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['fecha']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['estado_soporte']?></td>
                                 <td>
-                                    <?php if ($bitacoras['estado_soporte_id']==1)
-                                    {
-                                        echo '<button type="button" class="btn btn-success" onclick="myFunction()"><i class="ion-android-checkbox" ></i></button>';
-                                    }elseif ($bitacoras['estado_soporte_id']==2){
-                                        echo '<button type="button" class="btn btn-warning" onclick="myFunction()"><i class="ion-alert-circled" ></i></button>';
-                                    }
-                                    ?>
-                                </td>
-                                <th class="pt-3-half" contenteditable="true"><?php echo $bitacoras['estado_soporte']?></th>
-                                <td class="pt-3-half" contenteditable="true">
-                                    <select class="mdb-select md-form" name="estado_soporte">
-                                        <?php foreach ($resultados as $soportes):?>
-                                            <option value="<?php echo $soportes['id_estado_soporte']?>"><?php echo $soportes['estado_soporte']?></option>
-                                        <?php  endforeach; ?>
+                                    <select class="mdb-select md-form" name="usuario">
+                                            <option value="<?php echo $soporte['id_estado_soporte']?>"><?php echo $soporte['estado_soporte']?></option>
                                     </select>
                                 </td>
                             </tr>
+                            <?php  endforeach; ?>
                         <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <div class="botones">
-            <a href="../fpdf/main_bitacora.php">Guardar en PDF</a>
+            <a href="../fpdf/main_bitacora.php">Guardar Cambio</a>
         </div>
                 </div>
-
-
 </section>
 <script>
 
 </script>
-<!-- End Intro Section -->
-<!--  <div class="footer">
-    <div class="col-lg-6 text-lg-left text-center">
-      <div class="copyright">
-        &copy; Copyright <strong>Easy Net</strong>. All Rights Reserved 2020
-      </div>
-        Designed by <strong>Easy Net Team</strong>
-      </div>
-    </div>
-  </div>-->
-
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 <!-- Vendor JS Files -->

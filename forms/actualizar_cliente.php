@@ -115,7 +115,7 @@ WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
 
     <div class="intro-text">
         <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
-        <h2>ACTUALIZAR CLIENTE EASYNET</h2>
+        <h2>EDITAR CLIENTE EASYNET</h2>
         <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
 
         <!-- formulario agregar clientes -->

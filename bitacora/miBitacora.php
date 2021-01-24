@@ -100,7 +100,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
 
 
     <div class="intro-text">
-        <h2>BITACORA DE SOPORTE</h2>
+        <h2>MI BITACORA DE SOPORTE</h2>
         <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">

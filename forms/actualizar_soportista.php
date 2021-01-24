@@ -91,7 +91,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
 
     <div class="intro-text">
         <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
-        <h2>ACTUALIZAR SOPORTISTA</h2>
+        <h2>EDITAR SOPORTISTA</h2>
         <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
 
         <!-- formulario agregar clientes -->

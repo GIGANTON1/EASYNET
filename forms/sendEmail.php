@@ -20,7 +20,7 @@
         $mail->SMTPAuth = true;
         $mail->Username = "orelenriquez19@gmail.com"; //enter you email address
         $mail->Password = 'orel199720'; //enter you email password
-        $mail->Port = 465;
+        $mail->Port = 587;
         $mail->SMTPSecure = "ssl";
 
         //Email Settings

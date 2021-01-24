@@ -14,7 +14,7 @@ if (!$iniciado) {
     exit();
 }
 $cargo = $pdo->query("SELECT * FROM cargos");
-$estado = $pdo->query("SELECT * FROM estado");
+$estado = $pdo->query("SELECT * FROM estado_usuario");
 if (!empty($_POST)) {
     $usuario = $_POST['nombre'];
     $contraseña = $_POST['contraseña'];
@@ -152,7 +152,6 @@ if (!empty($_POST)) {
                     <?php foreach ($cargo as $cargos):?>
                         <option value="<?php echo $cargos['id_cargos']?>"><?php echo $cargos['cargos']?></option>
                     <?php  endforeach; ?>
-
             </select>
                 <label class="mdb-main-label">Estado</label>
             <select class="mdb-select md-form" name="estados">

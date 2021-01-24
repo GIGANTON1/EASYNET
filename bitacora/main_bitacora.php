@@ -180,7 +180,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
       });
 
       function myFunction() {
-          var myWindow = window.open("../forms/actualizar_soporte.php", "", "width=600,height=600");
+          var myWindow = window.open("../forms/actualizar_soporte.php", "", "width=800,height=600");
       }
 
   </script>
