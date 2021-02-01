@@ -2,17 +2,6 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
-foreach ($usua as $usu):
-    $usu['cargos_id'];
-endforeach;
-if ($usu['cargos_id'] != 1) {
-    header("Location: ../bitacora/bitacora_personal.php");
-}
-if (!$iniciado) {
-    header("Location: ../forms/login_form.php");
-    exit();
-}
 if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
@@ -81,18 +70,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
             <ul class="nav-menu">
                 <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
                 <!--<li><a href="#">Mi Bitacora</a></li>-->
-                <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
-                    <ul>
-                        <li><a href="../bitacora/bitacora.php">Nueva Bitácora</a></li>
-                        <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
-                    </ul>
-                </li>
-                <li class="menu-has-children"><a href="">Clientes</a>
-                    <ul>
-                        <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
-                        <li><a href="../views/clientes.php">Ver Clientes</a></li>
-                    </ul>
-                </li>
+                <li><a href="../bitacora/bitacora.php">Nueva Bitácora</a></li>
                 <i class="ion-android-person" style="color: white"></i>
                 <li class="menu-has-children"><a href="">Perfil</a>
                     <ul>

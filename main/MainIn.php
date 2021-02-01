@@ -61,7 +61,7 @@ if (!$iniciado) {
           <li class="menu-active"><a href="#intro">Inicio</a></li>
             <li class="menu-has-children"><a href="">Bítacoras</a>
                 <ul>
-                    <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
+                    <li><a href="../bitacora/bitacora_personal.php">Mi Bitacora</a></li>
                     <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
                 </ul>
             </li>

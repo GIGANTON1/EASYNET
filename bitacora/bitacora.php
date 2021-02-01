@@ -10,7 +10,8 @@ if (!$iniciado) {
 }
 
 $resultados = $pdo->query("SELECT id_usuario FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
-$clientes = $pdo->query("SELECT * FROM cliente");
+$clientes = $pdo->query("SELECT id_cliente, nombre_cliente, usuarios_id, usuarios.id_usuario, usuarios.usuario FROM easy_net.cliente
+inner join usuarios on cliente.usuarios_id = usuarios.id_usuario where usuarios.usuario = '" . $_SESSION['iniciado'] . "' ORDER BY nombre_cliente ASC");
 $soportes = $pdo->query("SELECT * FROM tipo_soporte");
 $estado = $pdo->query("SELECT * FROM estado_soporte");
 foreach ($resultados as $cliente):

@@ -23,7 +23,7 @@ if ($iniciado) {
 <!--Login-->
     <!--<img src="../img/" class="fondo" alt="">-->
     <form class="box" action="login.php" method="post" >
-      <h1 style="font-family: sans-serif">Login</h1>
+      <h1 style="font-family: sans-serif; font-weight: bold; justify-content: center ">Login Soportistas</h1>
         <label>Usuario</label>
         <input type="text" name="nombre"  id="nombre" placeholder="Ingrese su Usuario">
         <label>Contraseña</label>
