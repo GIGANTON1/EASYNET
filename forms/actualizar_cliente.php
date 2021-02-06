@@ -18,28 +18,29 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario WHERE cliente.id_cliente = '" . $_GET["id_cliente"] . "'");
 
 
-if (isset($_GET['id_cliente '])) {
-    $id = $_POST['id_cliente'];
+if (isset($_POST['update'])) {
+    $id = $_GET['id_cliente'];
+    $cliente = $_POST['nombre'];
     $rtn = $_POST['rtn'];
-    $nombre = $_POST['nombre'];
     $direccion = $_POST['direccion'];
-    $correo = $_POST['correo'];
-    $telefono = $_POST['telefono'];
     $contacto = $_POST['contacto'];
-    $usuario = $_POST['usuario'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
+    $soportista = $_POST['usuario'];
 
 
-    $act_cliente = $pdo->query("UPDATE easy_net.cliente SET  
-    cliente.nombre_cliente='nombre', 
-    cliente.rtn= 'rtn', 
-    cliente.direccion='direccion', 
-    cliente.contacto='contacto', 
-    cliente.telefono='telefono', 
-    cliente.correo='correo', 
-    cliente.usuarios_id='usuario' 
-WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
+    $pdoQuery = "UPDATE cliente SET nombre_cliente=:nombre, rtn=:rtn, direccion=:direccion, contacto=:contacto, telefono=:telefono, correo=:correo, usuarios_id=:usuarios WHERE id_cliente=:id";
+    $pdoQuery_run = $pdo->prepare($pdoQuery);
+    $pdoQuery_exec = $pdoQuery_run->execute(array(":nombre" => $cliente, ":rtn" => $rtn, ":direccion" => $direccion, ":contacto"=> $contacto, ":telefono"=>$telefono, ":correo"=>$correo, ":usuarios"=>$soportista, ":id"=>$id));
+
+    if ($pdoQuery_exec) {
+        echo '<script>alert("Soportista Actualizado")</script>';
+        header("Location: ../views/clientes.php");
+
+    } else {
+        echo '<script>alert("Soportista no actualizado")</script>';
+    }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +123,7 @@ WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
 
 
 
-        <form class="box" action="../conexionDB/actualizar_cliente.php" method="post" >
+        <form class="box" action="" method="post" >
             <!-- primera columna -->
             <div class="row">
 
@@ -131,11 +132,14 @@ WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
                     <div id="dato1" >
                         <label>Empresa</label>
                         <br>
-                        <input type="text" name="nombre" value="<?php echo $cliente['nombre_cliente']?>" placeholder="Nombre del Cliente" >
+                        <input type="hidden" value="<?php echo $_GET['id_usuario']?>" name="id">
+                        <input type="text" name="nombre" value="<?php echo $cliente['nombre_cliente']?>" placeholder="Nombre del Cliente" minlength="5" maxlength="45"
+                               title="Mínino de 5 carácteres y Máximo de 45 carácteres.">
                         <br>
                         <label>R.T.N</label>
                         <br>
-                        <input type="text" name="rtn"  placeholder="RTN del Cliente" value="<?php echo $cliente['rtn']?>">
+                        <input type="text" name="rtn"  placeholder="RTN del Cliente" value="<?php echo $cliente['rtn']?>" minlength="14" maxlength="14"
+                               title="El RTN debe contener 14 dígitos.">
                         <br>
                         <label>Dirección</label>
                         <br>
@@ -148,31 +152,38 @@ WHERE id_cliente ='" . $_GET['id_cliente'] . "'");
                     <div id="dato2" >
                         <label>Contacto</label>
                         <br>
-                        <input type="text" name="contacto" placeholder="Contacto de la Empresa" value="<?php echo $cliente['contacto']?>">
+                        <input type="text" name="contacto" placeholder="Contacto de la Empresa" value="<?php echo $cliente['contacto']?>" minlength="5" maxlength="45"
+                               title="Mínino de 5 carácteres y Máximo de 45 carácteres.">
                         <br>
                         <label># Teléfono</label>
                         <br>
-                        <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" value="<?php echo $cliente['telefono']?>">
+                        <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" value="<?php echo $cliente['telefono']?>"  maxlength="10"
+                               title="El télefono debe contener 10 dígitos">
                         <br>
                         <label>Correo Electrónico</label>
                         <br>
-                        <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente" value="<?php echo $cliente['correo']?>">
+                        <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente" value="<?php echo $cliente['correo']?>" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                               title="El Correo no es válido">
                     </div>
                 </div>
 
             </div>
-
+            <?php endforeach; ?>
             <div>
+                <label>Soportista</label>
+                <br>
                 <select  placeholder="Soportista" name="usuario">
-                    <option value="<?php echo $cliente['id_usuario']?>"><?php echo $cliente['usuario']?></option>
+                    <?php foreach ($usuario as $usu):?>
+                    <option value="<?php echo $usu['id_usuario']?>"><?php echo $usu['usuario']?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
             <div class="botones">
-                <input type="submit" value="Actualizar Cliente" href="../forms/actualizar_cliente.php?id_cliente=<?php echo $cliente["id_cliente"]; ?>">
+                <input type="submit" name="update" value="Actualizar Cliente">
                 <a href="../views/clientes.php">Ver Clientes</a>
             </div>
-            <?php endforeach; ?>
+
         </form>
 
         <!-- End formulario agregar clientes -->

@@ -104,15 +104,17 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
     <div id="dato1" >
       <label>Empresa</label>
       <br>
-      <input placeholder="Nombre del Cliente"type="text" name="nombre" min="4" max="45"
+      <input placeholder="Nombre del Cliente"type="text" name="nombre" minlength="5" maxlength="45"
+             title="Mínino de 5 carácteres y Máximo de 45 carácteres.">
       <br>
       <label>R.T.N</label>
       <br>
-      <input type="text" name="rtn"  placeholder="RTN del Cliente">
+      <input type="text" name="rtn"  placeholder="RTN del Cliente" minlength="14" maxlength="14"
+             title="El RTN debe contener 14 dígitos.">
       <br>
       <label>Dirección</label>
       <br>
-      <input type="text" name="direccion"  placeholder="Dirección del Cliente">
+      <input type="text" name="direccion"  placeholder="Dirección del Cliente" >
 
     </div>
   </div>
@@ -121,15 +123,18 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
     <div id="dato2" >
       <label>Contacto</label>
       <br>
-      <input type="text" name="contacto" placeholder="Contacto de la Empresa">
+      <input type="text" name="contacto" placeholder="Contacto de la Empresa" minlength="5" maxlength="45"
+             title="Mínino de 5 carácteres y Máximo de 45 carácteres.">
       <br>
       <label># Teléfono</label>
       <br>
-      <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente">
+      <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" minlength="10" maxlength="10"
+             title="El télefono debe contener 10 dígitos">
       <br>
       <label>Correo Electrónico</label>
       <br>
-      <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente">
+      <input type="text" name="correo"  placeholder="Correo Electrónico del Cliente" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+             title="El Correo no es válido">
     </div>
     </div>
     </div>

@@ -15,7 +15,7 @@ if (!$iniciado) {
 }
 $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos, estado_usuario.estado FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
-    inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado;");
+    inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado ORDER BY cargos;");
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +77,7 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                 <li class="menu-has-children"><a href="">Bítacoras</a>
                     <ul>
                         <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
-                        <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                        <li><a href="../bitacora/bitacora_admin.php">Nueva Bitacora</a></li>
                         <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
                     </ul>
                 </li>
@@ -85,7 +85,6 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.
                     <ul>
                         <li><a href="../views/clientes.php">Clientes</a></li>
                         <li><a href="../forms/agregar_clientes.php">Nuevo Cliente</a></li>
-                        <li><a href="../forms/actualizar_cliente.php">Actualizar Cliente</a></li>
                     </ul>
                 </li>
                 <i class="ion-android-person" style="color: white"></i>

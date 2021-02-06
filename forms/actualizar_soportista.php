@@ -16,6 +16,28 @@ if (!$iniciado) {
 $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuarios.contra, cargos.cargos, estado_usuario.estado FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
     inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado WHERE id_usuario = '" . $_GET["id_usuario"] . "';");
+$cargo = $pdo->query("SELECT * FROM cargos");
+$estado = $pdo->query("SELECT * FROM estado_usuario");
+if (isset($_POST['update'])) {
+
+    $id = $_GET['id_usuario'];
+    $usuario = $_POST['nombre'];
+    $contraseña = $_POST['contraseña'];
+    $estado_usuario = $_POST['estados'];
+    $cargos_usuario = $_POST['cargos'];
+
+    $pdoQuery = "UPDATE usuarios SET usuario=:usuario, contra=:contra, cargos_id=:cargos, estado_id=:estado WHERE id_usuario=:id";
+    $pdoQuery_run = $pdo->prepare($pdoQuery);
+    $pdoQuery_exec = $pdoQuery_run->execute(array(":usuario" => $usuario, ":contra" => $contraseña, ":id" => $id, ":cargos"=> $cargos_usuario, ":estado"=>$estado_usuario));
+
+    if ($pdoQuery_exec) {
+        echo '<script>alert("Soportista Actualizado")</script>';
+        header("Location: ../views/soportistas.php");
+
+    } else {
+        echo '<script>alert("Soportista no actualizado")</script>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,17 +107,13 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
         </nav><!-- #nav-menu-container -->
     </div>
 </header><!-- End Header -->
-
 <!-- ======= Intro Section ======= -->
 <section id="intro">
-
     <div class="intro-text">
         <!-- <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a> -->
         <h2>EDITAR SOPORTISTA</h2>
         <!--<p>Distribuidor Autorizado de PSKLOUD</p>-->
-
         <!-- formulario agregar clientes -->
-
         <form class="box" action="" method="post" >
             <!-- primera columna -->
             <div class="row">
@@ -106,39 +124,36 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
                         <br>
                         <input type="text" name="nombre" placeholder="Nombre del Soportista" value="<?php echo $usuario['usuario']?>">
                     </div>
-
                 </div>
                 <!-- segunda columna -->
                 <div class="col-sm">
-
                     <div id="dato2" >
                         <label>Contraseña</label>
                         <br>
                         <input type="password" name="contraseña" placeholder="Contraseña del soportista" value="<?php echo $usuario['contra']?>">
+                        <input type="hidden" value="<?php echo $_GET['id_usuario']?>" name="id">
                     </div>
                 </div>
-
-            </div>
-            <div>
-                <label class="mdb-main-label">Cargo</label<>
-                <select class="mdb-select md-form" name="cargos">
-
-                        <option value="<?php echo $usuario['id_cargos']?>"><?php echo $usuario['cargos']?></option>
-
-
-                </select>
-                <label class="mdb-main-label">Estado</label>
-                <select class="mdb-select md-form" name="estados">
-
-                        <option value="<?php echo $usuario['id_estado']?>"><?php echo $usuario['estado']?></option>
-
-                </select>
+                <?php  endforeach; ?>
             </div>
             <div class="botones">
-                <input type="submit" value="Actualizar Soportista" href="../conexionDB/actualizar_soportista.php?id_usuario=<?php echo $usuario["id_usuario"]; ?>">
+                <input type="submit" value="Actualizar Soportista" name="update">
                 <a href="../views/soportistas.php">Ver Soportistas</a>
             </div>
-            <?php  endforeach; ?>
+            <div>
+                    <label class="mdb-main-label">Cargo</label>
+                    <select class="mdb-select md-form" name="cargos">
+                        <?php foreach ($cargo as $car):?>
+                        <option value="<?php echo $car['id_cargos']?>"><?php echo $car['cargos']?></option>
+                        <?php  endforeach; ?>
+                    </select>
+                    <label class="mdb-main-label">Estado</label>
+                    <select class="mdb-select md-form" name="estados">
+                        <?php foreach ($estado as $est):?>
+                        <option value="<?php echo $est['id_estado']?>"><?php echo $est['estado']?></option>
+                        <?php  endforeach; ?>
+                    </select>
+            </div>
         </form>
 
         <!-- End formulario agregar clientes -->
@@ -181,4 +196,4 @@ $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, usuario
 
 </body>
 
-</html>
+</html

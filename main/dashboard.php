@@ -2,11 +2,18 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+$usua = $pdo->query("SELECT cargos_id, estado_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($usua as $usu):
+    $usu['estado_id'];
+endforeach;
 foreach ($usua as $usu):
     $usu['cargos_id'];
 endforeach;
-if ($usu['cargos_id'] != 1) {
+if ($usu['estado_id'] == 2) {
+    header("Location: ../conexionDB/logout.php");
+    exit();
+}elseif ($usu['cargos_id'] == 2)
+{
     header("Location: ../main/MainIn.php");
 }
 if (!$iniciado) {
@@ -61,7 +68,7 @@ if (!$iniciado) {
                 <li class="menu-has-children"><a href="">Bítacoras</a>
                     <ul>
                         <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
-                        <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                        <li><a href="../bitacora/bitacora_admin.php">Nueva Bitacora</a></li>
                         <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
                     </ul>
                 </li>
@@ -69,14 +76,12 @@ if (!$iniciado) {
                     <ul>
                         <li><a href="../views/clientes.php">Clientes</a></li>
                         <li><a href="../forms/agregar_clientes.php">Nuevo Cliente</a></li>
-                        <li><a href="../forms/actualizar_cliente.php">Actualizar Cliente</a></li>
                     </ul>
                 </li>
                 <li class="menu-has-children"><a href="">Soportistas</a>
                     <ul>
                         <li><a href="../views/soportistas.php">Soportistas</a></li>
                         <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
-                        <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
                     </ul>
                 </li>
                 <i class="ion-android-person" style="color: white"></i>

@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
 }
 #intro h2 {
-    margin-top: 100px;  
+    margin-top: 80px;
     padding: 0;
     font-size: 45px;
     font-weight: 525;

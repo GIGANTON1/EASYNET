@@ -78,7 +78,7 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
             <li class="menu-has-children"><a href="">Bítacoras</a>
                 <ul>
                     <li><a href="../bitacora/miBitacora.php">Mi Bitacora</a></li>
-                    <li><a href="../bitacora/bitacora.php">Nueva Bitacora</a></li>
+                    <li><a href="../bitacora/bitacora_admin.php">Nueva Bitacora</a></li>
                     <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
                 </ul>
             </li>
@@ -86,7 +86,6 @@ $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombr
                 <ul>
                     <li><a href="../views/soportistas.php">Soportistas</a></li>
                     <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
-                    <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
                 </ul>
             </li>
             <i class="ion-android-person" style="color: white"></i>

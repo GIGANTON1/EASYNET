@@ -2,11 +2,18 @@
 require_once "../conexionDB/conexion.php";
 session_start();
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-$resultados = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+$resultados = $pdo->query("SELECT cargos_id, estado_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($resultados as $usu):
+    $usu['estado_id'];
+endforeach;
 foreach ($resultados as $usu):
     $usu['cargos_id'];
 endforeach;
-if ($usu['cargos_id'] == 1) {
+if ($usu['estado_id'] == 2) {
+    header("Location: ../conexionDB/logout.php");
+    exit();
+}elseif ($usu['cargos_id'] == 1)
+{
     header("Location: ../main/dashboard.php");
 }
 if (!$iniciado) {

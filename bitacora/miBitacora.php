@@ -83,7 +83,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                 <!--<li><a href="#">Mi Bitacora</a></li>-->
                 <li class="menu-has-children"><a href="bitacora.php">Bitácora</a>
                     <ul>
-                        <li><a href="../bitacora/bitacora.php">Nueva Bitácora</a></li>
+                        <li><a href="../bitacora/bitacora_admin.php">Nueva Bitácora</a></li>
                         <li><a href="../bitacora/main_bitacora.php">Bitácora General</a></li>
                     </ul>
                 </li>
@@ -91,6 +91,12 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                     <ul>
                         <li><a href="../forms/agregar_clientes.php">Agregar Clientes</a></li>
                         <li><a href="../views/clientes.php">Ver Clientes</a></li>
+                    </ul>
+                </li>
+                <li class="menu-has-children"><a href="">Soportistas</a>
+                    <ul>
+                        <li><a href="../forms/agregar_soportista.php">Agregar Soportistas</a></li>
+                        <li><a href="../views/soportistas.php">Ver Soportistas</a></li>
                     </ul>
                 </li>
                 <i class="ion-android-person" style="color: white"></i>
