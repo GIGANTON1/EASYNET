@@ -13,15 +13,32 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
-$estado = $pdo->query("SELECT * FROM estado_soporte");
-$resultados = $pdo->query("SELECT 
+$estado = $pdo->query("SELECT * FROM estado_soporte where id_estado_soporte = 1");
+$resultados = $pdo->query("SELECT bitacora.id_bitacora,
 bitacora.nombre_cliente, bitacora.contacto_soporte,
 bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario, estado_soporte.estado_soporte, estado_soporte.id_estado_soporte
 FROM easy_net.bitacora
 inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
 inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario
-inner join estado_soporte on bitacora.estado_soporte_id = estado_soporte.id_estado_soporte WHERE estado_soporte_id = 2  
-order by FECHA DESC");
+inner join estado_soporte on bitacora.estado_soporte_id = estado_soporte.id_estado_soporte WHERE bitacora.id_bitacora = '" . $_GET["id_bitacora"] . "'");
+if (isset($_POST['update'])) {
+
+    $id = $_GET['id_bitacora'];
+    $id_estado = $_POST['estado'];
+
+
+    $pdoQuery = "UPDATE bitacora SET estado_soporte_id=:estado WHERE id_bitacora=:id";
+    $pdoQuery_run = $pdo->prepare($pdoQuery);
+    $pdoQuery_exec = $pdoQuery_run->execute(array(":estado" => $id_estado, ":id" => $id));
+
+    if ($pdoQuery_exec) {
+        echo '<script>alert("Soporte Actualizado")</script>';
+
+
+    } else {
+        echo '<script>alert("Soporte no actualizado")</script>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +90,20 @@ order by FECHA DESC");
             <a href="#intro"><img src="../imgs/logo_easynet.png" alt=""></a>
             <h1><a href="#intro" class="scrollto">EasyNet</a></h1>
         </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
+
+                    <i class="ion-android-person" style="color: white"></i>
+                    <li class="menu-has-children"><a href="">Perfil</a>
+                        <ul>
+                            <li><?php echo $_SESSION['iniciado']?></li>
+                            <li><a href="../conexionDB/logout.php">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>        </ul>
+            </nav><!-- #nav-menu-container -->
+
+
 
 <!-- #nav-menu-container -->
     </div>
@@ -87,47 +118,52 @@ order by FECHA DESC");
 
     <div class="intro-text">
         <h2>ACTUALIZACION DE SOPORTE DE BITACORA</h2>
+
         <div class="w-75 p-3"  style="background-color: #eeeeee">
             <div class="card-body">
                 <div id="table" class="table-editable">
                     <table class="table table-bordered table-responsive-md table-striped text-center">
-                        <input class="form-control mb-4" id="tableSearch" type="text"
-                               placeholder="Busqueda de clientes...">
                         <thead>
                         <tr>
                             <th class="text-center">EMPRESA</th>
                             <th class="text-center">MOTIVO</th>
+                            <th class="text-center">SOLUCION</th>
                             <th class="text-center">FECHA</th>
+                            <th class="text-center">SOPORTISTA</th>
                             <th class="text-center">ESTADO</th>
-                            <th class="text-center">NUEVO ESTADO</th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
                         <?php foreach ($resultados as $cliente):?>
-                            <?php foreach ($estado as $soporte):?>
                             <tr>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $cliente['nombre_cliente']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $cliente['motivo']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['solucion']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $cliente['fecha']?></td>
+                                <td class="pt-3-half" contenteditable="true"><?php echo $cliente['usuario']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $cliente['estado_soporte']?></td>
-                                <td>
-                                    <select class="mdb-select md-form" name="usuario">
-                                            <option value="<?php echo $soporte['id_estado_soporte']?>"><?php echo $soporte['estado_soporte']?></option>
-                                    </select>
-                                </td>
+                                <input type="hidden" value="<?php echo $_GET['id_bitacora']?>" name="id">
                             </tr>
-                            <?php  endforeach; ?>
                         <?php endforeach; ?>
-
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
-        <div class="botones">
-            <a href="../fpdf/main_bitacora.php">Guardar Cambio</a>
+        <form class="box" action="" method="post" >
+        <label style="font-weight: bold; color: white" >Nuevo Estado</label>
+        <select class="mdb-select md-form" name="estado">
+            <?php foreach ($estado as $est):?>
+                <option value="<?php echo $est['id_estado_soporte']?>"><?php echo $est['estado_soporte']?></option>
+            <?php  endforeach; ?>
+        </select>
+            <br>
+         <div class="botones">
+               <input type="submit" value="Actualizar Estado de Soporte" name="update">
         </div>
-                </div>
+        </form>
+    </div>
 </section>
 <script>
 

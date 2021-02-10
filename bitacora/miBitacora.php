@@ -17,9 +17,9 @@ if (!$iniciado) {
     header("Location: ../forms/login_form.php");
     exit();
 }
-$resultados = $pdo->query("SELECT 
+$resultados = $pdo->query("SELECT bitacora.id_bitacora,
 bitacora.nombre_cliente, bitacora.contacto_soporte,
-bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario
+bitacora.motivo, bitacora.solucion, bitacora.fecha, bitacora.estado_soporte_id, tipo_soporte.soporte, usuarios.usuario, bitacora.estado_soporte_id
 FROM easy_net.bitacora
 inner join easy_net.tipo_soporte on easy_net.bitacora.tipo_soporte_id = easy_net.tipo_soporte.id_soporte
 inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuarios.id_usuario where usuario = '" . $_SESSION['iniciado'] . "' order by fecha DESC");
@@ -125,7 +125,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
 
                     <table class="table table-bordered table-responsive-md table-striped text-center">
                         <input class="form-control mb-4" id="tableSearch" type="text"
-                               placeholder="Busqueda de bitacora">
+                               placeholder="Busqueda de bitacora...">
                         <thead>
                         <tr>
                             <th class="text-center">CLIENTE</th>
@@ -141,6 +141,7 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                         <tbody id="myTable">
                         <?php foreach ($resultados as $bitacoras):?>
                             <tr>
+                                <?php $id=$bitacoras['id_bitacora'];?>
                                 <th class="pt-3-half" contenteditable="true"><?php echo $bitacoras['nombre_cliente']?></th>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['contacto_soporte']?></td>
                                 <td class="pt-3-half" contenteditable="true"><?php echo $bitacoras['motivo']?></td>
@@ -153,7 +154,8 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
                                     {
                                         echo '<button type="button" class="btn btn-success"><i class="ion-android-checkbox" ></i></button>';
                                     }elseif ($bitacoras['estado_soporte_id']==2){
-                                        echo '<button type="button" class="btn btn-warning"><i class="ion-alert-circled" ></i></button>';
+                                        echo '<button type="button" class="btn btn-warning" onclick="myFunction(\''.$id.'\')">
+                                        <i class="ion-alert-circled" ></i></button>';
                                     }
                                     ?>
                                 </td>
@@ -186,6 +188,10 @@ inner join easy_net.usuarios on easy_net.bitacora.usuarios_id = easy_net.usuario
             });
         });
     });
+    function myFunction(id) {
+        var myWindows = window.open("../forms/actualizar_soporte.php?id_bitacora="+id, "", "width=880,height=538");
+
+    }
 </script>
 <!-- End Intro Section -->
 <!--  <div class="footer">

@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bitacora_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bitacora_form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitacora/miBitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/miBitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/actualizar_soportista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/actualizar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_cliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/actualizar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soportista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/agregar_clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/MainIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/main/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/clientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/soportistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/soportistas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_cliente.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_soportista.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/actualizar_soporte.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soporte.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <hideBySeverity>
+      <option value="15" />
+      <option value="200" />
+      <option value="300" />
+    </hideBySeverity>
+    <option name="sortBySeverity" value="false" />
+  </component>
   <component name="ProjectId" id="1iR9tjZ8kvwdJN7hbfdTVtxELqN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,7 +49,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -99,7 +101,8 @@
       <workItem from="1611376963590" duration="48755000" />
       <workItem from="1611944377670" duration="2558000" />
       <workItem from="1612196598250" duration="2544000" />
-      <workItem from="1612477102387" duration="21513000" />
+      <workItem from="1612477102387" duration="21654000" />
+      <workItem from="1612912314811" duration="19149000" />
     </task>
     <servers />
   </component>
@@ -107,10 +110,14 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610770804188">
+    <state x="475" y="27" key="#PHP" timestamp="1612929259421">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1610770804188" />
+    <state x="475" y="27" key="#PHP/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1612929259421" />
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612914495334">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="278" y="59" width="800" height="675" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1612914495334" />
     <state x="414" y="190" width="527" height="413" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611386197218">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -127,6 +134,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="503" y="319" width="329" height="154" key="NewPhpFileDialog/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1612486493917" />
+    <state x="187" y="32" key="SettingsEditor" timestamp="1612929689878">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="187" y="32" key="SettingsEditor/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1612929689878" />
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1611438917067">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
