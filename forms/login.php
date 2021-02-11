@@ -16,13 +16,17 @@ if ($resultado) {
     session_start();
     $_SESSION['iniciado'] = $id['id_usuario'];
     $_SESSION['iniciado']=$usuario;
-    header("Location: ../main/MainIn.php");
-    exit();
+     header("Location: ../main/MainIn.php");
+exit();
 }else
     {
-                header("Location: ../views/admin.php");
-}
+        echo "<script>
+                alert('Error al iniciar Sesion Guapo');
+                window.location= '../forms/login_form.php'
+    </script>";
 
+    }
+?>
 
 
 

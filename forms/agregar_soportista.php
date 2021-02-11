@@ -31,10 +31,13 @@ if (!empty($_POST)) {
             . " VALUES ('$usuario', '$contraseña', '$cargos', '$estados')");
     }
     if ($ingreso >= 1) {
-        header("Location: ../views/soportistas.php");
-        exit();
+        echo "<script>alert('Soportista Agregado Exitosamente');
+        window.location= '../views/soportistas.php'</script>";
+
     } else {
-        $mensajes[] = "Error al ingresar el Cliente";
+        echo "<script>
+                alert('Error al agregar Soportista');
+    </script>";
     }
 }
 ?>

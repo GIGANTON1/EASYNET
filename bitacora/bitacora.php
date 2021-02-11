@@ -39,9 +39,15 @@ if (!empty($_POST)) {
     }
 
     if ($ingreso >= 1) {
-        $mensajes[] = "Bitacora del cliente " . $nombre .  " agregado exitosamente";
+        echo "<script>
+                alert('Soporte guardado Exitosamente');
+                window.location= '../bitacora/miBitacora.php'
+    </script>";
     } else {
-        $mensajes[] = "Hubo un error al crear su usuario.";
+        echo "<script>
+                alert('Error al guardar el Soporte');
+                window.location= '../bitacora/bitacora.php'
+    </script>";
     }
 
 }

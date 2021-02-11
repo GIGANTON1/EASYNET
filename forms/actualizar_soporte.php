@@ -32,12 +32,13 @@ if (isset($_POST['update'])) {
     $pdoQuery_exec = $pdoQuery_run->execute(array(":estado" => $id_estado, ":id" => $id));
 
     if ($pdoQuery_exec) {
-        echo '<script>alert("Soporte Actualizado")</script>';
-
-
+        echo "<script>alert('Estado de Soporte Actualizado');</script>";
+        echo "<script>window.close();</script>";
     } else {
-        echo '<script>alert("Soporte no actualizado")</script>';
-    }
+        echo "<script>
+                alert('Error al actualizar el estado de Soporte');
+    </script>";
+}
 }
 ?>
 <!DOCTYPE html>
@@ -92,8 +93,6 @@ if (isset($_POST['update'])) {
         </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="../main/MainIn.php">Inicio</a></li>
-
                     <i class="ion-android-person" style="color: white"></i>
                     <li class="menu-has-children"><a href="">Perfil</a>
                         <ul>

@@ -31,11 +31,13 @@ if (isset($_POST['update'])) {
     $pdoQuery_exec = $pdoQuery_run->execute(array(":usuario" => $usuario, ":contra" => $contraseña, ":id" => $id, ":cargos"=> $cargos_usuario, ":estado"=>$estado_usuario));
 
     if ($pdoQuery_exec) {
-        echo '<script>alert("Soportista Actualizado")</script>';
-        header("Location: ../views/soportistas.php");
+        echo "<script>alert('Datos del Soportista Actualizados Exitosamente');
+        window.location= '../views/soportistas.php'</script>";
 
     } else {
-        echo '<script>alert("Soportista no actualizado")</script>';
+        echo "<script>
+                alert('Error al actualizar Soportista');
+    </script>";
     }
 }
 ?>

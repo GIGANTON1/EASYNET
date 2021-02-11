@@ -3,11 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/main_bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/main_bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/miBitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/miBitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_cliente.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conexionDB/actualizar_soportista.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitacora/bitacora_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionDB/eliminar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/eliminar_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conexionDB/eliminar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/eliminar_soportista.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/actualizar_soporte.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soporte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/actualizar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soportista.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/agregar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_soportista.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +108,7 @@
       <workItem from="1611944377670" duration="2558000" />
       <workItem from="1612196598250" duration="2544000" />
       <workItem from="1612477102387" duration="21654000" />
-      <workItem from="1612912314811" duration="19149000" />
+      <workItem from="1612912314811" duration="32512000" />
     </task>
     <servers />
   </component>
@@ -142,5 +148,16 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741/0.27.1366.741@0.27.1366.741" timestamp="1611438917067" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/bitacora/bitacora_admin.php</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

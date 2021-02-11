@@ -19,11 +19,16 @@ if (!empty($_POST)) {
             . " VALUES ('$nombre', '$rtn', '$direccion', '$contacto', '$telefono', '$correo', '$usuario')");
     }
     if ($ingreso >= 1) {
-        header("Location: ../views/clientes.php");
-        exit();
+        echo "<script>
+                alert('Cliente agregado Exitosamente');
+                window.location= '../views/clientes.php'
+    </script>";
+//        exit();
     } else {
-        $mensajes[] = "Error al ingresar el Cliente";
-        echo $mensajes ="HOla";
+        echo "<script>
+                alert('Error al agregar cliente');
+                window.location= '../forms/agregar_clientes.php'
+    </script>";
 
     }
 }

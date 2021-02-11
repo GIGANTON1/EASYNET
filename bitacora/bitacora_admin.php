@@ -27,29 +27,32 @@ if (!empty($_POST)) {
     $nombre = $_POST['cliente'];
     $contacto = $_POST['contacto_soporte'];
     $motivo = $_POST['motivo'];
-    $solucion= $_POST['solucion'];
+    $solucion = $_POST['solucion'];
     $soporte = $_POST['soporte'];
     $fecha = $_POST['fecha'];
     $id = $cliente['id_usuario'];
     $estado = $_POST['estado'];
 
-    if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte)|| empty($fecha)|| empty($estado)) {
+    if (empty($nombre) || empty($contacto) || empty($motivo) || empty($solucion) || empty($soporte) || empty($fecha) || empty($estado)) {
         $mensajes[] = "Todos los campos son obligatorios";
     }
     $ingreso = 0;
 
     if (empty($mensajes)) {
-        $ingreso = $pdo->exec("INSERT INTO bitacora"
-            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id )"
-            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
+        $ingreso = $pdo->exec("INSERT INTO bitacora" . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id )" . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
     }
 
     if ($ingreso >= 1) {
-        $mensajes[] = "Bitacora del cliente " . $nombre .  " agregado exitosamente";
+        echo "<script>
+                alert('Soporte guardado Exitosamente');
+                window.location= '../bitacora/miBitacora.php'
+    </script>";
     } else {
-        $mensajes[] = "Hubo un error al crear su usuario.";
+        echo "<script>
+                alert('Error al guardar el Soporte');
+                window.location= '../bitacora/bitacora_admin.php'
+    </script>";
     }
-
 }
 ?>
 <!DOCTYPE html>
