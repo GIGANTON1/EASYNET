@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf6933c-b68d-44a2-913a-41e3fd0804e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/agregar_bitacora.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/bitacora.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitacora/bitacora_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitacora/bitacora_admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conexionDB/eliminar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/eliminar_cliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conexionDB/eliminar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/conexionDB/eliminar_soportista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/actualizar_soporte.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soporte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/actualizar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/actualizar_soportista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/agregar_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_cliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/agregar_soportista.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/agregar_soportista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHPMailer/enviar_correo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +43,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/main" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/forms" />
       <recent name="$PROJECT_DIR$/views" />
@@ -109,6 +103,8 @@
       <workItem from="1612196598250" duration="2544000" />
       <workItem from="1612477102387" duration="21654000" />
       <workItem from="1612912314811" duration="32512000" />
+      <workItem from="1613088386547" duration="18000" />
+      <workItem from="1613769856553" duration="622000" />
     </task>
     <servers />
   </component>
