@@ -338,7 +338,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Product Featuress Section
 --------------------------------*/
 #intro {
-  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8)),url("../../imgs/servicio.jpg") center top no-repeat;
+  background: linear-gradient(80deg, rgba(45, 115, 253, 100),rgba(29, 200, 205, 0.8)),url("../../imgs/red.jpg") center top no-repeat;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;

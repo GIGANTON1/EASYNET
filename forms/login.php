@@ -14,8 +14,8 @@ $resultado = $soportista->fetch(PDO::FETCH_ASSOC);
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
 if ($resultado) {
     session_start();
-    $_SESSION['iniciado'] = $id['id_usuario'];
-    $_SESSION['iniciado']=$usuario;
+    // $_SESSION['iniciado'] = $id['id_usuario'];
+    // $_SESSION['iniciado']=$usuario;
      header("Location: ../main/MainIn.php");
 exit();
 }else

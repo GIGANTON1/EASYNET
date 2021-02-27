@@ -1,18 +1,18 @@
 <?php
 require_once "../conexionDB/conexion.php";
-session_start();
-$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
-foreach ($usua as $usu):
-    $usu['cargos_id'];
-endforeach;
-if ($usu['cargos_id'] != 1) {
-    header("Location: . ./main/MainIn.php");
-}
-if (!$iniciado) {
-    header("Location: ../forms/login_form.php");
-    exit();
-}
+// session_start();
+// $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+// $usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+// foreach ($usua as $usu):
+//     $usu['cargos_id'];
+// endforeach;
+// if ($usu['cargos_id'] != 1) {
+//     header("Location: . ./main/MainIn.php");
+// }
+// if (!$iniciado) {
+//     header("Location: ../forms/login_form.php");
+//     exit();
+// }
 $resultados = $pdo->query("SELECT usuarios.id_usuario, usuarios.usuario, cargos.cargos, estado_usuario.estado FROM easy_net.usuarios 
     inner join easy_net.cargos on easy_net.usuarios.cargos_id = easy_net.cargos.id_cargos
     inner join easy_net.estado_usuario on easy_net.usuarios.estado_id = easy_net.estado_usuario.id_estado ORDER BY cargos;");
