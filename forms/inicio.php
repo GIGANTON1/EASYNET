@@ -1,41 +1,29 @@
 <?php
 require_once "../conexionDB/conexion.php";
+$usuario=$_POST["nombre"];
+$password=$_POST["contra"];
 
-if ( !isset($_POST['nombre'], $_POST['contra']) ) {
-	// Could not get the data that should have been sent.
-	exit('Please fill both the username and password fields!');
-}
-if ($stmt = $con->prepare('SELECT id_usuario, password FROM accounts WHERE username = ?')) {
-	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-	$stmt->bind_param('s', $_POST['nombre']);
-	$stmt->execute();
-	// Store the result so we can check if the account exists in the database.
-	$stmt->store_result();
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
-        $stmt->fetch();
-        // Account exists, now we verify the password.
-        // Note: remember to use password_hash in your registration file to store the hashed passwords.
-        if ($_POST['contra'] === $password){
-            // Verification success! User has logged-in!
-            // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-            session_regenerate_id();
-            $_SESSION['loggedin'] = TRUE;
-            $_SESSION['nombre'] = $_POST['nombre'];
-            $_SESSION['id'] = $id;
-            echo 'Welcome ' . $_SESSION['usuario'] . '!';
-        } else {
-            // Incorrect password
-            echo 'Incorrect username and/or password!';
-        }
-    } else {
-        // Incorrect username
-        echo 'Incorrect username and/or password!';
+$soportista = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' AND contra = '$password' AND estado_id = 1");
+$pdo->prepare();
+$soportista->bindParam("nombre", $usuario, PDO::PARAM_STR);
+$soportista->bindParam("contra", $password, PDO::PARAM_STR);
+$soportista->execute();
+$resultado = $soportista->fetch(PDO::FETCH_ASSOC);
+
+
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+if ($resultado) {
+    session_start();
+    $_SESSION['iniciado'] = $id['id_usuario'];
+    $_SESSION['iniciado']=$usuario;
+     header("Location: ../main/MainIn.php");
+exit();
+}else
+    {
+        echo "<script>
+                alert('Error al iniciar Sesion Guapo');
+                window.location= '../forms/login_form.php'
+    </script>";
+
     }
-
-	$stmt->close();
-}
-
 ?>
-
-

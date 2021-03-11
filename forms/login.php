@@ -1,34 +1,34 @@
 <?php
-require_once "../conexionDB/conexion.php";
-$usuario=$_POST["nombre"];
-$password=$_POST["contra"];
-
-$soportista = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' AND contra = '$password' AND estado_id = 1");
-$pdo->prepare();
-$soportista->bindParam("nombre", $usuario, PDO::PARAM_STR);
-$soportista->bindParam("contra", $password, PDO::PARAM_STR);
-$soportista->execute();
-$resultado = $soportista->fetch(PDO::FETCH_ASSOC);
-
-
+session_start();
+require_once "conexion.php";
+$mensajes = [];
 $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-if ($resultado) {
-    session_start();
-    // $_SESSION['iniciado'] = $id['id_usuario'];
-    // $_SESSION['iniciado']=$usuario;
-     header("Location: ../main/MainIn.php");
-exit();
-}else
-    {
+if ($iniciado){
+    header("Location: index1.php");
+    exit();
+} elseif (!empty($_POST)){
+    $nombre_usuario = isset($_POST['nombre'])? $_POST['nombre']: '';
+    $contra = isset($_POST['contra'])? $_POST['contra']: '';
+    $sql = ("SELECT * FROM usuarios WHERE usuario = :nombre and contra = :contra");
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nombre', $nombre_usuario);
+    $stmt->bindParam(':contra', $contra);
+    $stmt->execute();
+   // $resultado = $pdo ->query("SELECT * FROM usuarios WHERE apodo = '{$nombre_usuario}' and contraseña = '{$contra}'");
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($usuario===false){
         echo "<script>
-                alert('Error al iniciar Sesion Guapo');
-                window.location= '../forms/login_form.php'
-    </script>";
-
+        alert('Error al iniciar Sesion Guapo');
+        window.location= '../forms/login_form.php'
+</script>";
+    } else {        
+        $_SESSION['iniciado'] = $usuario['id_usuario'];
+        $_SESSION['iniciado'] = $nombre_usuario;
+        header("Location: ../main/MainIn.php");
+        exit;
     }
+}
 ?>
-
-
 
 
 

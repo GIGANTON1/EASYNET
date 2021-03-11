@@ -1,19 +1,19 @@
 <?php
 require_once "../conexionDB/conexion.php";
-// session_start();
-// $iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
-// $usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
-// foreach ($usua as $usu):
-//     $usu['cargos_id'];
-// endforeach;
-// if ($usu['cargos_id'] != 1) {
-//     header("Location: ../main/MainIn.php");
-// }
-// if (!$iniciado) {
-//     $usuario = $_SESSION['iniciado'];
-//     header("Location: ../forms/login_form.php");
-//     exit();
-// }
+session_start();
+$iniciado = isset($_SESSION['iniciado'])? $_SESSION['iniciado']: false;
+$usua = $pdo->query("SELECT cargos_id FROM usuarios where usuario = '" . $_SESSION['iniciado'] . "'");
+foreach ($usua as $usu):
+    $usu['cargos_id'];
+endforeach;
+if ($usu['cargos_id'] != 1) {
+    header("Location: ../main/MainIn.php");
+}
+if (!$iniciado) {
+    $usuario = $_SESSION['iniciado'];
+    header("Location: ../forms/login_form.php");
+    exit();
+}
 $resultados = $pdo->query("select cliente.id_cliente, cliente.rtn, cliente.nombre_cliente, cliente.direccion, cliente.correo, cliente.telefono, 
  usuarios.usuario from easy_net.cliente inner join usuarios on easy_net.cliente.usuarios_id = easy_net.usuarios.id_usuario ORDER BY nombre_cliente ASC");
 

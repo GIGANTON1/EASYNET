@@ -39,9 +39,10 @@ if (!empty($_POST)) {
     $ingreso = 0;
 
     if (empty($mensajes)) {
-        $ingreso = $pdo->exec("INSERT INTO bitacora" . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id )" . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
-    }
-
+        $ingreso = $pdo->exec("INSERT INTO bitacora"
+            . " (nombre_cliente, contacto_soporte, motivo, solucion, tipo_soporte_id, fecha, usuarios_id, estado_soporte_id )"
+            . " VALUES ('$nombre', '$contacto', '$motivo', '$solucion', '$soporte', '$fecha', '$id', '$estado')");
+    }    
     if ($ingreso >= 1) {
         echo "<script>
                 alert('Soporte guardado Exitosamente');
@@ -95,9 +96,6 @@ if (!empty($_POST)) {
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/bitacora_form.css" rel="stylesheet">
-
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
@@ -166,7 +164,6 @@ if (!empty($_POST)) {
                             <br>
                             <input type="text" name="motivo"  placeholder="Problema/Motivo de la llamada">
                             <br>
-
                             <label>Contacto</label>
                             <br>
                             <input type="text" name="contacto_soporte" placeholder="Contacto de la empresa que llamo para solicitar el soporte">
@@ -201,7 +198,6 @@ if (!empty($_POST)) {
             </form>
         </div>
         <!----Form Bitacora---->
-
         <!----End Form Bitacora---->
         <div class="footer">
             <div class="copyright">

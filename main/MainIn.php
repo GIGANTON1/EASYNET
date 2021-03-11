@@ -88,7 +88,7 @@ if (!$iniciado) {
   <section id="intro">
 
     <div class="intro-text">
-      <a href="#intro"><img src="../imgs/logo_nuevo.png" alt=""></a>
+      <a href="#intro"><img style="width: 100%;" src="../imgs/logo_nuevo.png" alt=""></a>
 
       <div class="footer">
         <div class="copyright">

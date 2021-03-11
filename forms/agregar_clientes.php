@@ -70,7 +70,6 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
                 <ul>
                     <li><a href="../views/soportistas.php">Soportistas</a></li>
                     <li><a href="../forms/agregar_soportista.php">Nuevo Soportistas</a></li>
-                    <li><a href="../forms/actualizar_soportista.php">Actualizar</a></li>
                 </ul>
             </li>
             <i class="ion-android-person" style="color: white"></i>
@@ -128,8 +127,8 @@ $usuario = $pdo->query("SELECT * FROM usuarios");
       <br>
       <label># Teléfono</label>
       <br>
-      <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" minlength="10" maxlength="10"
-             title="El télefono debe contener 10 dígitos">
+      <input type="text" name="telefono"  placeholder="Número Telefónico del Cliente" minlength="8" maxlength="8"
+             title="El télefono debe contener 8 dígitos">
       <br>
       <label>Correo Electrónico</label>
       <br>
