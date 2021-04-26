@@ -18,7 +18,7 @@ if ($iniciado){
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($usuario===false){
         echo "<script>
-        alert('Error al iniciar Sesion Guapo');
+        alert('Error al iniciar contraseña: Usuario o Contraseña incorrecta');
         window.location= '../forms/login_form.php'
 </script>";
     } else {        

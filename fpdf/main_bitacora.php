@@ -32,18 +32,17 @@ class PDF extends FPDF
         $this->Ln(45);
         $this->SetFont('Arial','B',10);
         $this->Cell(35, 7, 'Empresa', 1, 0, 'C', 0);
-        $this->Cell(20, 7, 'Contacto', 1, 0, 'C', 0);
-        $this->Cell(60, 7, 'Motivo', 1, 0, 'C', 0);
-        $this->Cell(65, 7, 'Solucion/Motivo', 1, 0, 'C', 0);
-        $this->Cell(25, 7, 'Soporte', 1, 0, 'C', 0);
+        $this->Cell(22, 7, 'Contacto', 1, 0, 'C', 0);
+        $this->Cell(125, 7, 'Motivo', 1, 0, 'C', 0);
+        // $this->Cell(65, 7, 'Solucion/Motivo', 1, 0, 'C', 0);
+        $this->Cell(20, 7, 'Soporte', 1, 0, 'C', 0);
         $this->Cell(20, 7, 'Soportista', 1, 0, 'C', 0);
-        $this->Cell(25, 7, 'Fecha', 1, 0, 'C', 0);
+        $this->Cell(20, 7, 'Fecha', 1, 0, 'C', 0);
 
         $this->Cell(30, 7, 'Estado Soporte', 1, 1, 'C', 0);
 
     }
 //Column titles
-
 // Pie de página
     function Footer()
     {
@@ -66,12 +65,12 @@ $pdf->SetFont('helvetica','',8);
 /*TABLA DE CLIENTES*/
 while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
     $pdf->Cell(35, 7, $row['nombre_cliente'], 1, 0, 'L', 0);
-    $pdf->Cell(20, 7, $row['contacto_soporte'], 1, 0, 'C', 0);
-    $pdf->Cell(60, 7, $row['motivo'], 1, 0, 'L  ', 0);
-    $pdf->Cell(65, 7, $row['solucion'], 1, 0, 'C', 0);
-    $pdf->Cell(25, 7, $row['soporte'], 1, 0, 'C', 0);
+    $pdf->Cell(22, 7, $row['contacto_soporte'], 1, 0, 'C', 0);
+    $pdf->Cell(125, 7, utf8_decode($row['motivo']), 1, 0, 'L  ', 0);
+    // $pdf->Cell(65, 7, $row['solucion'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 7, $row['soporte'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 7, $row['usuario'], 1, 0, 'C', 0);
     $pdf->Cell(20, 7, $row['fecha'], 1, 0, 'C', 0);
-    $pdf->Cell(25, 7, $row['usuario'], 1, 0, 'C', 0);
     $pdf->Cell(30, 7, $row['estado_soporte'], 1, 1, 'C', 0);
 }
 $pdf->Output();
